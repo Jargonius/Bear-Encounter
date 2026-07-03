@@ -31,14 +31,12 @@ You find yourself face to face with a bear. <u>What do you do?</u> [[Flee]] [[Hi
 
 
 :: Changelog {"position":"275,25","size":"100,100"}
-''Changes since Pv1.0:''
-<small>
-* Updated to a modern html format.
-* Built using Twine 2 with Harlowe.</small>
-<small>-Added new random outcomes to some choices.</small>
-<small>-Changed wording and grammar to flow and sound better.</small>
-<small>-Added Easter eggs.</small>
-==> [[Back->Bear Encounter]]
+(align:"=><=")+(box:"X")[''Changes since Pv1.0:'']<small>• Updated to a modern html format.</small>
+<small>• Built using Twine 2 with Harlowe.</small>
+<small>• Added new random outcomes to some choices.</small>
+<small>• Changed wording and grammar to flow and sound better.</small>
+<small>• Added Easter eggs.</small>
+(align:"==>")[($pixel_box: "[[Back->Title Screen]]")]
 
 
 :: Charge Wall {"position":"900,275","size":"100,100"}
@@ -165,7 +163,7 @@ You run but the bear catches you and kills you.
 {
   (set: $Enemy to 
       (either:
-        ...(repeated: 7, "Bear"),
+        ...(repeated: 12, "Bear"),
         "Shark",
         "Horse",
         "Gerbil"
@@ -207,8 +205,11 @@ You run but the bear catches you and kills you.
 (set: $h3 to (macro: str-type _text, [
     (output:) + (css: "font-size: 1.25em;")[_text]
 ]))
-}
 
+(set: $pixel_box to (macro: str-type _text, [
+(output:)[<span class="pixel-corners--wrapper"><span class="pixel-corners">_text</span></span>]
+]))
+}
 
 (goto: "Title Screen")
 
@@ -234,13 +235,16 @@ You throw it and it hits the bear. He kills you in his rage.
 
 
 :: Title Screen {"position":"150,25","size":"100,100"}
+
 (align:"=><=")+(box:"X")[($h1: "$Enemy Encounter")
 ($h2: "Version 2.0")
 ($h3: "© Bret Anderson")
 <div class="spacer"></div>
-[[Start]]
-<small>[[Changelog]]</small>
-<div class="pixel-corners">Test</div>]
+($pixel_box: "[[Start]]")
+
+
+($pixel_box: "<small>[[Changelog]]</small>")
+]
 {<!--(transition: "dissolve")[$title] (transition: "dissolve")[$version] (transition: "dissolve")[By $author]--> <!--{ (live: 1s)[ (transition: "dissolve")[Loading] (if: time > 4.5s)[(stop:)] ] (live: 5s)[ (if: time > 5s)[(goto: "Start")] ] }-->}
 
 
@@ -297,7 +301,12 @@ tw-story {
 }
 
 tw-link, .enchantment-link {
-    color: #555;
+    color: #333;
+}
+
+/* Color of links pointing to already visited passages */
+.visited, .visited:hover {
+  color: #333;
 }
 
 tw-sidebar {
@@ -305,127 +314,58 @@ tw-sidebar {
 }
 
 .spacer {
-  height: 20vh;
+  height: 15vh;
 }
 
-.pixel-corners,
 .pixel-corners--wrapper {
-  clip-path: polygon(0px calc(100% - 8px),
-    2px calc(100% - 8px),
-    2px calc(100% - 4px),
-    4px calc(100% - 4px),
-    4px calc(100% - 2px),
-    8px calc(100% - 2px),
-    8px 100%,
-    calc(100% - 8px) 100%,
-    calc(100% - 8px) calc(100% - 2px),
-    calc(100% - 4px) calc(100% - 2px),
-    calc(100% - 4px) calc(100% - 4px),
-    calc(100% - 2px) calc(100% - 4px),
-    calc(100% - 2px) calc(100% - 8px),
-    100% calc(100% - 8px),
-    100% 8px,
-    calc(100% - 2px) 8px,
-    calc(100% - 2px) 4px,
-    calc(100% - 4px) 4px,
-    calc(100% - 4px) 2px,
-    calc(100% - 8px) 2px,
-    calc(100% - 8px) 0px,
-    8px 0px,
-    8px 2px,
-    4px 2px,
-    4px 4px,
-    2px 4px,
-    2px 8px,
-    0px 8px);
-  position: relative;
-}
-.pixel-corners {
-  border: 2px solid transparent;
-}
-.pixel-corners--wrapper {
+  /* This is the new shadow effect */
+  filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.1));
+  /* 1. Inline-flex completely neutralizes vertical text baseline padding */
+  display: inline-flex;
   width: fit-content;
   height: fit-content;
+  position: relative;
+  box-sizing: border-box;
+  vertical-align: middle;
+
+  clip-path: polygon(0px calc(100% - 8px), 2px calc(100% - 8px), 2px calc(100% - 4px), 4px calc(100% - 4px), 4px calc(100% - 2px), 8px calc(100% - 2px), 8px 100%, calc(100% - 8px) 100%, calc(100% - 8px) calc(100% - 2px), calc(100% - 4px) calc(100% - 2px), calc(100% - 4px) calc(100% - 4px), calc(100% - 2px) calc(100% - 4px), calc(100% - 2px) calc(100% - 8px), 100% calc(100% - 8px), 100% 8px, calc(100% - 2px) 8px, calc(100% - 2px) 4px, calc(100% - 4px) 4px, calc(100% - 4px) 2px, calc(100% - 8px) 2px, calc(100% - 8px) 0px, 8px 0px, 8px 2px, 4px 2px, 4px 4px, 2px 4px, 2px 8px, 0px 8px);
 }
+
+.pixel-corners {
+  /* 2. Forces inner container to behave identically */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  position: relative;
+  box-sizing: border-box;
+  border: 2px solid transparent;
+  
+  /* Safe padding and exact font handling */
+  padding: 6px 12px;
+  line-height: 1.2;
+  
+  clip-path: polygon(0px calc(100% - 8px), 2px calc(100% - 8px), 2px calc(100% - 4px), 4px calc(100% - 4px), 4px calc(100% - 2px), 8px calc(100% - 2px), 8px 100%, calc(100% - 8px) 100%, calc(100% - 8px) calc(100% - 2px), calc(100% - 4px) calc(100% - 2px), calc(100% - 4px) calc(100% - 4px), calc(100% - 2px) calc(100% - 4px), calc(100% - 2px) calc(100% - 8px), 100% calc(100% - 8px), 100% 8px, calc(100% - 2px) 8px, calc(100% - 2px) 4px, calc(100% - 4px) 4px, calc(100% - 4px) 2px, calc(100% - 8px) 2px, calc(100% - 8px) 0px, 8px 0px, 8px 2px, 4px 2px, 4px 4px, 2px 4px, 2px 8px, 0px 8px);
+}
+
+/* 3. Aggressively clears out any paragraph layout blocks injected by Harlowe */
+.pixel-corners p,
+.pixel-corners tw-expression,
+.pixel-corners tw-hook,
+.pixel-corners tw-passage {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: inline !important;
+}
+
 .pixel-corners--wrapper .pixel-corners {
-  display: block;
-  clip-path: polygon(2px 8px,
-    4px 8px,
-    4px 4px,
-    8px 4px,
-    8px 2px,
-    calc(100% - 8px) 2px,
-    calc(100% - 8px) 4px,
-    calc(100% - 4px) 4px,
-    calc(100% - 4px) 8px,
-    calc(100% - 2px) 8px,
-    calc(100% - 2px) calc(100% - 8px),
-    calc(100% - 4px) calc(100% - 8px),
-    calc(100% - 4px) calc(100% - 4px),
-    calc(100% - 8px) calc(100% - 4px),
-    calc(100% - 8px) calc(100% - 2px),
-    8px calc(100% - 2px),
-    8px calc(100% - 4px),
-    4px calc(100% - 4px),
-    4px calc(100% - 8px),
-    2px calc(100% - 8px));
+  clip-path: polygon(2px 8px, 4px 8px, 4px 4px, 8px 4px, 8px 2px, calc(100% - 8px) 2px, calc(100% - 8px) 4px, calc(100% - 4px) 4px, calc(100% - 4px) 8px, calc(100% - 2px) 8px, calc(100% - 2px) calc(100% - 8px), calc(100% - 4px) calc(100% - 8px), calc(100% - 4px) calc(100% - 4px), calc(100% - 8px) calc(100% - 4px), calc(100% - 8px) calc(100% - 2px), 8px calc(100% - 2px), 8px calc(100% - 4px), 4px calc(100% - 4px), 4px calc(100% - 8px), 2px calc(100% - 8px));
 }
+
 .pixel-corners::after,
 .pixel-corners--wrapper::after {
   content: "";
   position: absolute;
-  clip-path: polygon(0px calc(100% - 8px),
-    2px calc(100% - 8px),
-    2px calc(100% - 4px),
-    4px calc(100% - 4px),
-    4px calc(100% - 2px),
-    8px calc(100% - 2px),
-    8px 100%,
-    calc(100% - 8px) 100%,
-    calc(100% - 8px) calc(100% - 2px),
-    calc(100% - 4px) calc(100% - 2px),
-    calc(100% - 4px) calc(100% - 4px),
-    calc(100% - 2px) calc(100% - 4px),
-    calc(100% - 2px) calc(100% - 8px),
-    100% calc(100% - 8px),
-    100% 8px,
-    calc(100% - 2px) 8px,
-    calc(100% - 2px) 4px,
-    calc(100% - 4px) 4px,
-    calc(100% - 4px) 2px,
-    calc(100% - 8px) 2px,
-    calc(100% - 8px) 0px,
-    8px 0px,
-    8px 2px,
-    4px 2px,
-    4px 4px,
-    2px 4px,
-    2px 8px,
-    0px 8px,
-    0px 50%,
-    2px 50%,
-    2px 8px,
-    4px 8px,
-    4px 4px,
-    8px 4px,
-    8px 2px,
-    calc(100% - 8px) 2px,
-    calc(100% - 8px) 4px,
-    calc(100% - 4px) 4px,
-    calc(100% - 4px) 8px,
-    calc(100% - 2px) 8px,
-    calc(100% - 2px) calc(100% - 8px),
-    calc(100% - 4px) calc(100% - 8px),
-    calc(100% - 4px) calc(100% - 4px),
-    calc(100% - 8px) calc(100% - 4px),
-    calc(100% - 8px) calc(100% - 2px),
-    8px calc(100% - 2px),
-    8px calc(100% - 4px),
-    4px calc(100% - 4px),
-    4px calc(100% - 8px),
-    2px calc(100% - 8px),
-    2px 50%,
-    0px 50%);
   top: 0;
   bottom: 0;
   left: 0;
@@ -433,7 +373,9 @@ tw-sidebar {
   background: #333;
   display: block;
   pointer-events: none;
+  clip-path: polygon(0px calc(100% - 8px), 2px calc(100% - 8px), 2px calc(100% - 4px), 4px calc(100% - 4px), 4px calc(100% - 2px), 8px calc(100% - 2px), 8px 100%, calc(100% - 8px) 100%, calc(100% - 8px) calc(100% - 2px), calc(100% - 4px) calc(100% - 2px), calc(100% - 4px) calc(100% - 4px), calc(100% - 2px) calc(100% - 4px), calc(100% - 2px) calc(100% - 8px), 100% calc(100% - 8px), 100% 8px, calc(100% - 2px) 8px, calc(100% - 2px) 4px, calc(100% - 4px) 4px, calc(100% - 4px) 2px, calc(100% - 8px) 2px, calc(100% - 8px) 0px, 8px 0px, 8px 2px, 4px 2px, 4px 4px, 2px 4px, 2px 8px, 0px 8px, 0px 50%, 2px 50%, 2px 8px, 4px 8px, 4px 4px, 8px 4px, 8px 2px, calc(100% - 8px) 2px, calc(100% - 8px) 4px, calc(100% - 4px) 4px, calc(100% - 4px) 8px, calc(100% - 2px) 8px, calc(100% - 2px) calc(100% - 8px), calc(100% - 4px) calc(100% - 8px), calc(100% - 4px) calc(100% - 4px), calc(100% - 8px) calc(100% - 4px), calc(100% - 8px) calc(100% - 2px), 8px calc(100% - 2px), 8px calc(100% - 4px), 4px calc(100% - 4px), 4px calc(100% - 8px), 2px calc(100% - 8px), 2px 50%, 0px 50%);
 }
+
 .pixel-corners::after {
   margin: -2px;
 }
