@@ -1,0 +1,300 @@
+:: StoryTitle
+Bear Encounter
+
+
+:: StoryData
+{
+  "ifid": "ADDC94D7-95FF-4946-A275-2334AA5BF082",
+  "format": "Harlowe",
+  "format-version": "3.3.9",
+  "start": "Setup",
+  "tag-colors": {
+    "version": "yellow",
+    "Pv2.0": "red",
+    "Bret-Anderson": "blue",
+    "title": "blue"
+  },
+  "zoom": 1
+}
+
+
+:: Attack {"position":"1150,25","size":"100,100"}
+{ (set: $outcome1 to "You growl and the bear runs away whimpering. (align: '==>')[[[Continue->You Win]]]") (set: $outcome2 to "You growl but the bear isn't intimidated and kills you. (align: '==>')[[[Continue->Game Over]]]") (either: $outcome1, $outcome1, $outcome1, $outcome1, $outcome1, $outcome1, $outcome1, $outcome1, $outcome1, $outcome2) }
+
+
+:: Bear Encounter {"position":"525,25","size":"100,100"}
+You find yourself face to face with a bear. <u>What do you do?</u> [[Flee]] [[Hide]] [[Sing to it]] [[Play Dead]] [[Attack]] [[Look Around]] [[Climb a Tree]] [[Take a Nap]] [[Feed It]] [[Yell]] [[Call a Friend]]
+
+
+:: Call a Friend {"position":"650,150","size":"100,100"}
+{ (set: $outcome1 to "You call for a friend but sadly you have no friends. The bear cries for you and feels your pain. You die of heartache. The bear gives you a proper burial in his stomach. (align: '==>')[[[Continue->Game Over]]]") (set: $outcome2 to "You call for a friend but sadly you have no friends. The bear cries for you and feels your pain but bears have gotta eat too. The bear sates his hunger as he wipes away the final tear. (align: '==>')[[[Continue->Game Over]]]") (set: $outcome3 to "You call for a friend but sadly you have no friends. The bear cries for you and feels your pain. You form a lasting friendship with a bond stronger than most. You live out the rest of your lives having wonderful adventures together. (align: '==>')[[[Continue->You Win]]]") (either: $outcome1, $outcome1, $outcome1, $outcome1, $outcome1, $outcome2, $outcome2, $outcome3) }
+
+
+:: Changelog {"position":"275,25","size":"100,100"}
+''Changes since Pv1.0:''
+<small>
+* Updated to a modern html format.
+* Built using Twine 2 with Harlowe.</small>
+<small>-Added new random outcomes to some choices.</small>
+<small>-Changed wording and grammar to flow and sound better.</small>
+<small>-Added Easter eggs.</small>
+==> [[Back->Bear Encounter]]
+
+
+:: Charge Wall {"position":"900,275","size":"100,100"}
+{ (set: $outcome1 to "You charge it, fall over, and the bear kills you. (align: '==>')[[[Continue->Game Over]]]") (set: $outcome2 to "You break through and escape! (align: '==>')[[[Continue->You Win]]]") (either: $outcome1, $outcome1, $outcome1, $outcome1, $outcome2) }
+
+
+:: Climb Wall {"position":"1025,275","size":"100,100"}
+You climb the wall. The bear comes after you and hits into it. You escape!
+
+
+:: Climb a Tree {"position":"150,150","size":"100,100"}
+You climb the tree. Do you look? [[Left->Tree Left]] [[Right->Tree Right]]
+
+
+:: Dance {"position":"25,400","size":"100,100"}
+You dance but bugs come and eat your flesh. The bear eats the remains.
+
+
+:: Dislikes Name {"position":"1025,400","size":"100,100"}
+Unfortunately you don't know the bear's favorite name. The bear doesn't like your choice. He kills you.
+
+
+:: Don't Play Fingerpaints {"position":"775,525","size":"100,100"}
+The bear gets mad and kills you. He plays fingerpaints on your chest.
+
+
+:: Eat Rock {"position":"775,275","size":"100,100"}
+You put the rock in your mouth and choke to death.
+
+
+:: Faithfully {"position":"150,400","size":"100,100"}
+You sing and the bear is forever yours, faithfully. You run away and get married.
+
+
+:: Feed It {"position":"400,150","size":"100,100"}
+Which Food? [[Peanut Butter->Feed Peanut Butter]] [[Wheaties->Feed Wheaties]]
+
+
+:: Feed Peanut Butter {"position":"1150,400","size":"100,100"}
+You feed the bear and his mouth gets stuck. You escape(either: "", "", "", " as the bear mumbles for a glass of milk", " as the bear tries to free his mouth")!
+
+
+:: Feed Wheaties {"position":"25,525","size":"100,100"}
+You feed the bear and he becomes a great athlete. He whacks your head off with a tennis racket.
+
+
+:: Fingerpaints {"position":"525,525","size":"100,100"}
+You wake up and the bear wants to play fingerpaints. Play fingerpaints? [[Yes->Play Fingerpaints]] [[No->Don't Play Fingerpaints]]
+
+
+:: Flee {"position":"650,25","size":"100,100"}
+You decide to flee. What pace? [[Jog]] [[Run]]
+
+
+:: Game Over {"position":"1025,525","size":"100,100"}
+=><= ###Game Over! Play Again? [[Yes->Start]] [[No->Start]]
+
+
+:: Get Ye Beaker {"position":"1150,275","size":"100,100"}
+You cannot get ye beaker. The bear kills you.
+
+
+:: Hide {"position":"775,25","size":"100,100"}
+You decide to hide. Where? [[Under a Bush]] [[In the Cave]]
+
+
+:: In the Cave {"position":"900,150","size":"100,100"}
+You walk into the cave. As you're walking along you fall down a mineshaft and die.
+
+
+:: Jog {"position":"1025,150","size":"100,100"}
+You and the bear jog together. When you finish, you both agree that was a refreshing workout.
+
+
+:: Likes Name {"position":"900,400","size":"100,100"}
+The bear loves the name $name. You become great friends.
+
+
+:: Look Around {"position":"25,150","size":"100,100"}
+You decide to look [[Left->Look Left]] [[Right->Look Right]] [[Back->Look Back]] [[Up->Look Up]] [[Down->Look Down]]
+
+
+:: Look Back {"position":"275,275","size":"100,100"}
+You look back and see a beaker. Do you? [[Get Ye Beaker]] [[Dance]]
+
+
+:: Look Down {"position":"525,275","size":"100,100"}
+You look down and see some mushrooms. You eat them and realize they were 1-up mushrooms. The bear kills you. =><= ###Respawn! ==> [[Continue->Start]]
+
+
+:: Look Left {"position":"25,275","size":"100,100"}
+You look left and see a rock. Do you? [[Throw it->Throw Rock]] [[Eat it->Eat Rock]]
+
+
+:: Look Right {"position":"150,275","size":"100,100"}
+You look right and see a brick wall. Do you? [[Charge it->Charge Wall]] [[Climb it->Climb Wall]]
+
+
+:: Look Up {"position":"400,275","size":"100,100"}
+You look up and see a meteor (either: "hurtling straight for", "screaming toward") earth. It kills you on impact.
+
+
+:: Napping {"position":"400,525","size":"100,100"}
+==> [[Continue->Fingerpaints]]
+
+
+:: Oh Beary {"position":"400,400","size":"100,100"}
+You sing and the bear holds on, holds onto your neck. You suffocate and die.
+
+
+:: Play Dead {"position":"1025,25","size":"100,100"}
+You lie down and the bear kills you.
+
+
+:: Play Fingerpaints {"position":"650,525","size":"100,100"}
+{ (set: $outcome1 to "You and the bear play fingerpaints. You have lots of fun! (align: '==>')[[[Continue->You Win]]]") (set: $outcome2 to "You and the bear play fingerpaints. You have lots of fun! The bear kills you anyway. (align: '==>')[[[Continue->Game Over]]]") (either: $outcome1, $outcome1, $outcome1, $outcome1, $outcome2) }
+
+
+:: Run {"position":"1150,150","size":"100,100"}
+You run but the bear catches you and kills you.
+
+
+:: Setup {"position":"25,25","size":"100,100"}
+{
+  (set: $Enemy to 
+      (either:
+        ...(repeated: 7, "Bear"),
+        "Shark",
+        "Horse",
+        "Gerbil"
+      )
+    )
+  (set: $enemy to (lowercase: $Enemy))
+  (set: $gender to (either: "male", "male", "female"))
+}
+
+{
+  (set: $tags to (passage:)'s tags)
+  (if: $tags contains "continue")
+    [
+      (set: $next to $tags's (2))
+      (align: "==>")[ (link-goto: "Continue", $next.replace("-", " ")) ]
+    ]
+  (replace: "bear")[$enemy]
+  (replace: "Bear")[$Enemy]
+  (if: $gender is 'female')
+    [
+      (replace: " he ")[ she ]
+      (replace: " him ")[ her ]
+      (replace: " his ")[ hers ]
+      (replace: " himself ")[ herself ]
+      (replace: " He ")[ She ]
+      (replace: " Him ")[ Her ]
+      (replace: " His ")[ Hers ]
+      (replace: " Himself ")[ Herself ]
+    ]
+    
+(set: $title to (macro: str-type _text, [
+    (output:) + (css: "font-size: 3em; text-align: center;")[_text]
+]))
+
+(set: $subtitle to (macro: str-type _text, [
+    (output:) + (css: "font-size: 2em; text-align: center;")[_text]
+]))
+
+(set: $subsubtitle to (macro: str-type _text, [
+    (output:) + (css: "font-size: 1.5em; text-align: center;")[_text]
+]))
+}
+
+
+(goto: "Title Screen")
+
+
+:: Sing to it {"position":"900,25","size":"100,100"}
+You decide to sing. [[Faithfully]] [[Under Pressure]] [[Oh Beary]] [[Thriller]]
+
+
+:: Start {"position":"400,25","size":"100,100"}
+(goto: "Bear Encounter")
+
+
+:: Take a Nap {"position":"275,150","size":"100,100"}
+You and the bear lie down and take a nap. =><= (css: "font-size:1.3em")[z](live: .4s)[(if: time > .4s)[(css: "font-size:1.6em")[z]](if: time > .8s)[(css: "font-size:1.9em")[z]](if: time > 1.2s)[(css: "font-size:2.2em")[z]](if: time > 1.6s)[(css: "font-size:2.5em")[z]](if: time > 2s)[(css: "font-size:2.8em")[z]](if: time > 2.4s)[(goto: "Napping")]](css: "font-size:2.8em; visibility: hidden;")[z]
+
+
+:: Thriller {"position":"525,400","size":"100,100"}
+You sing and the bear is so thrilled he lets you moonwalk to freedom.
+
+
+:: Throw Rock {"position":"650,275","size":"100,100"}
+You throw it and it hits the bear. He kills you in his rage.
+
+
+:: Title Screen [title] {"position":"150,25","size":"100,100"}
+(align:"=><=")+(box:"X=")[
+($title: "$Enemy Encounter")
+($subtitle: "Puter Version 2.0")
+($subsubtitle: "© Bret Anderson")
+<div class="spacer"></div>
+[[Start]]
+<small>[[Changelog]]</small>
+]
+{<!--(transition: "dissolve")[$title] (transition: "dissolve")[$version] (transition: "dissolve")[By $author]--> <!--{ (live: 1s)[ (transition: "dissolve")[Loading] (if: time > 4.5s)[(stop:)] ] (live: 5s)[ (if: time > 5s)[(goto: "Start")] ] }-->}
+
+
+:: Tree Left {"position":"650,400","size":"100,100"}
+You look left and see a pile of splendifferous delkrams. As you wonder what a delkram is, the bear climbs the tree and kills you.
+
+
+:: Tree Right {"position":"775,400","size":"100,100"}
+You look right and see a timid little ostrich. You jump down and run to it. You decide to keep it as a pet.
+(set: $name to (prompt: "What do you name it?")) { (if: (lowercase: $name) is 'svenholt')[ (go-to: "Likes Name") ](else-if: (lowercase: $name) is 'sanchez')[ (go-to: "Likes Name") ](else:)[ (go-to: "Dislikes Name") ] }
+
+
+:: Under Pressure {"position":"275,400","size":"100,100"}
+You sing and the bear puts pressure on your skull and kills you.
+
+
+:: Under a Bush {"position":"775,150","size":"100,100"}
+The bear sees you hide, finds you, and kills you.
+
+
+:: Yell {"position":"525,150","size":"100,100"}
+You decide to yell. Yell what? [[Yippee->Yell Yipee]] [[Help->Yell Help]]
+
+
+:: Yell Help {"position":"275,525","size":"100,100"}
+You yell help and the bear helps himself to your delicious body.
+
+
+:: Yell Yipee {"position":"150,525","size":"100,100"}
+You yell yipee and square dance with the bear. When you finish the bear thanks you for the dance.
+
+
+:: You Win {"position":"900,525","size":"100,100"}
+=><= ##You Win! Play Again? [[Yes->Start]] [[No->Start]]
+
+
+:: StoryStylesheet [stylesheet]
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+.vt323-regular {
+  font-family: "VT323", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+tw-story {
+  background-color: #99cc66;
+  color: #333333;
+  display: flex;
+  flex-direction: column;
+  font-family: "VT323", monospace;  
+}
+
+.spacer {
+  height: 40vh;
+}
