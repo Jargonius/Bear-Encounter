@@ -196,16 +196,16 @@ You run but the bear catches you and kills you.
       (replace: " Himself ")[ Herself ]
     ]
     
-(set: $title to (macro: str-type _text, [
-    (output:) + (css: "font-size: 3em; text-align: center;")[_text]
+(set: $h1 to (macro: str-type _text, [
+    (output:) + (css: "font-size: 2.15em;")[_text]
 ]))
 
-(set: $subtitle to (macro: str-type _text, [
-    (output:) + (css: "font-size: 2em; text-align: center;")[_text]
+(set: $h2 to (macro: str-type _text, [
+    (output:) + (css: "font-size: 1.75em;")[_text]
 ]))
 
-(set: $subsubtitle to (macro: str-type _text, [
-    (output:) + (css: "font-size: 1.5em; text-align: center;")[_text]
+(set: $h3 to (macro: str-type _text, [
+    (output:) + (css: "font-size: 1.25em;")[_text]
 ]))
 }
 
@@ -233,15 +233,14 @@ You sing and the bear is so thrilled he lets you moonwalk to freedom.
 You throw it and it hits the bear. He kills you in his rage.
 
 
-:: Title Screen [title] {"position":"150,25","size":"100,100"}
-(align:"=><=")+(box:"X=")[
-($title: "$Enemy Encounter")
-($subtitle: "Puter Version 2.0")
-($subsubtitle: "© Bret Anderson")
+:: Title Screen {"position":"150,25","size":"100,100"}
+(align:"=><=")+(box:"X")[($h1: "$Enemy Encounter")
+($h2: "Version 2.0")
+($h3: "© Bret Anderson")
 <div class="spacer"></div>
 [[Start]]
 <small>[[Changelog]]</small>
-]
+<div class="pixel-corners">Test</div>]
 {<!--(transition: "dissolve")[$title] (transition: "dissolve")[$version] (transition: "dissolve")[By $author]--> <!--{ (live: 1s)[ (transition: "dissolve")[Loading] (if: time > 4.5s)[(stop:)] ] (live: 5s)[ (if: time > 5s)[(goto: "Start")] ] }-->}
 
 
@@ -285,16 +284,156 @@ You yell yipee and square dance with the bear. When you finish the bear thanks y
   font-family: "VT323", monospace;
   font-weight: 400;
   font-style: normal;
+  color: #333b
 }
 
 tw-story {
   background-color: #99cc66;
-  color: #333333;
+  color: #333;
   display: flex;
   flex-direction: column;
-  font-family: "VT323", monospace;  
+  font-family: "VT323", monospace;
+  text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+tw-link, .enchantment-link {
+    color: #555;
+}
+
+tw-sidebar {
+    display: none;
 }
 
 .spacer {
-  height: 40vh;
+  height: 20vh;
+}
+
+.pixel-corners,
+.pixel-corners--wrapper {
+  clip-path: polygon(0px calc(100% - 8px),
+    2px calc(100% - 8px),
+    2px calc(100% - 4px),
+    4px calc(100% - 4px),
+    4px calc(100% - 2px),
+    8px calc(100% - 2px),
+    8px 100%,
+    calc(100% - 8px) 100%,
+    calc(100% - 8px) calc(100% - 2px),
+    calc(100% - 4px) calc(100% - 2px),
+    calc(100% - 4px) calc(100% - 4px),
+    calc(100% - 2px) calc(100% - 4px),
+    calc(100% - 2px) calc(100% - 8px),
+    100% calc(100% - 8px),
+    100% 8px,
+    calc(100% - 2px) 8px,
+    calc(100% - 2px) 4px,
+    calc(100% - 4px) 4px,
+    calc(100% - 4px) 2px,
+    calc(100% - 8px) 2px,
+    calc(100% - 8px) 0px,
+    8px 0px,
+    8px 2px,
+    4px 2px,
+    4px 4px,
+    2px 4px,
+    2px 8px,
+    0px 8px);
+  position: relative;
+}
+.pixel-corners {
+  border: 2px solid transparent;
+}
+.pixel-corners--wrapper {
+  width: fit-content;
+  height: fit-content;
+}
+.pixel-corners--wrapper .pixel-corners {
+  display: block;
+  clip-path: polygon(2px 8px,
+    4px 8px,
+    4px 4px,
+    8px 4px,
+    8px 2px,
+    calc(100% - 8px) 2px,
+    calc(100% - 8px) 4px,
+    calc(100% - 4px) 4px,
+    calc(100% - 4px) 8px,
+    calc(100% - 2px) 8px,
+    calc(100% - 2px) calc(100% - 8px),
+    calc(100% - 4px) calc(100% - 8px),
+    calc(100% - 4px) calc(100% - 4px),
+    calc(100% - 8px) calc(100% - 4px),
+    calc(100% - 8px) calc(100% - 2px),
+    8px calc(100% - 2px),
+    8px calc(100% - 4px),
+    4px calc(100% - 4px),
+    4px calc(100% - 8px),
+    2px calc(100% - 8px));
+}
+.pixel-corners::after,
+.pixel-corners--wrapper::after {
+  content: "";
+  position: absolute;
+  clip-path: polygon(0px calc(100% - 8px),
+    2px calc(100% - 8px),
+    2px calc(100% - 4px),
+    4px calc(100% - 4px),
+    4px calc(100% - 2px),
+    8px calc(100% - 2px),
+    8px 100%,
+    calc(100% - 8px) 100%,
+    calc(100% - 8px) calc(100% - 2px),
+    calc(100% - 4px) calc(100% - 2px),
+    calc(100% - 4px) calc(100% - 4px),
+    calc(100% - 2px) calc(100% - 4px),
+    calc(100% - 2px) calc(100% - 8px),
+    100% calc(100% - 8px),
+    100% 8px,
+    calc(100% - 2px) 8px,
+    calc(100% - 2px) 4px,
+    calc(100% - 4px) 4px,
+    calc(100% - 4px) 2px,
+    calc(100% - 8px) 2px,
+    calc(100% - 8px) 0px,
+    8px 0px,
+    8px 2px,
+    4px 2px,
+    4px 4px,
+    2px 4px,
+    2px 8px,
+    0px 8px,
+    0px 50%,
+    2px 50%,
+    2px 8px,
+    4px 8px,
+    4px 4px,
+    8px 4px,
+    8px 2px,
+    calc(100% - 8px) 2px,
+    calc(100% - 8px) 4px,
+    calc(100% - 4px) 4px,
+    calc(100% - 4px) 8px,
+    calc(100% - 2px) 8px,
+    calc(100% - 2px) calc(100% - 8px),
+    calc(100% - 4px) calc(100% - 8px),
+    calc(100% - 4px) calc(100% - 4px),
+    calc(100% - 8px) calc(100% - 4px),
+    calc(100% - 8px) calc(100% - 2px),
+    8px calc(100% - 2px),
+    8px calc(100% - 4px),
+    4px calc(100% - 4px),
+    4px calc(100% - 8px),
+    2px calc(100% - 8px),
+    2px 50%,
+    0px 50%);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #333;
+  display: block;
+  pointer-events: none;
+}
+.pixel-corners::after {
+  margin: -2px;
 }
