@@ -19,6 +19,8 @@
 }
 
 tw-story {
+  width: 100vw;
+  padding-top: 3.5rem;
   background-color: #99cc66;
   color: #333;
   display: flex;
@@ -105,13 +107,57 @@ tw-sidebar {
 
 .pixel-corners::after {
   margin: -2px;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="version" color="yellow"></tw-tag><tw-tag name="Pv2.0" color="red"></tw-tag><tw-tag name="Bret-Anderson" color="blue"></tw-tag><tw-tag name="title" color="blue"></tw-tag><tw-passagedata pid="1" name="Attack" tags="" position="1150,25" size="100,100">{ (set: $outcome1 to &quot;You growl and the bear runs away whimpering. (align: &#39;==&gt;&#39;)[[[Continue-&gt;You Win]]]&quot;) (set: $outcome2 to &quot;You growl but the bear isn&#39;t intimidated and kills you. (align: &#39;==&gt;&#39;)[[[Continue-&gt;Game Over]]]&quot;) (either: $outcome1, $outcome1, $outcome1, $outcome1, $outcome1, $outcome1, $outcome1, $outcome1, $outcome1, $outcome2) }</tw-passagedata><tw-passagedata pid="2" name="Bear Encounter" tags="" position="525,25" size="100,100">You find yourself face to face with a bear. &lt;u&gt;What do you do?&lt;/u&gt; [[Flee]] [[Hide]] [[Sing to it]] [[Play Dead]] [[Attack]] [[Look Around]] [[Climb a Tree]] [[Take a Nap]] [[Feed It]] [[Yell]] [[Call a Friend]]</tw-passagedata><tw-passagedata pid="3" name="Call a Friend" tags="" position="650,150" size="100,100">{ (set: $outcome1 to &quot;You call for a friend but sadly you have no friends. The bear cries for you and feels your pain. You die of heartache. The bear gives you a proper burial in his stomach. (align: &#39;==&gt;&#39;)[[[Continue-&gt;Game Over]]]&quot;) (set: $outcome2 to &quot;You call for a friend but sadly you have no friends. The bear cries for you and feels your pain but bears have gotta eat too. The bear sates his hunger as he wipes away the final tear. (align: &#39;==&gt;&#39;)[[[Continue-&gt;Game Over]]]&quot;) (set: $outcome3 to &quot;You call for a friend but sadly you have no friends. The bear cries for you and feels your pain. You form a lasting friendship with a bond stronger than most. You live out the rest of your lives having wonderful adventures together. (align: &#39;==&gt;&#39;)[[[Continue-&gt;You Win]]]&quot;) (either: $outcome1, $outcome1, $outcome1, $outcome1, $outcome1, $outcome2, $outcome2, $outcome3) }</tw-passagedata><tw-passagedata pid="4" name="Changelog" tags="" position="275,25" size="100,100">(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;X&quot;)[&#39;&#39;Changes since Pv1.0:&#39;&#39;]&lt;small&gt;• Updated to a modern html format.&lt;/small&gt;
+}
+
+.flex-box {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: stretch;
+  row-gap: 10px;
+}
+.flex-boxz {
+  display: grid;
+  /* Adjust the '200px' below to dictate the exact width of your boxes */
+  grid-template-columns: repeat(auto-fill, minmax(300px, auto));
+  
+  /* Grid gaps bypass Harlowe's hidden tags completely */
+  row-gap: 20px;     
+  column-gap: 15px;  
+}
+
+.flex-item {
+  padding-bottom: 150px;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="version" color="yellow"></tw-tag><tw-tag name="Pv2.0" color="red"></tw-tag><tw-tag name="Bret-Anderson" color="blue"></tw-tag><tw-tag name="title" color="blue"></tw-tag><tw-passagedata pid="1" name="Attack" tags="" position="1150,25" size="100,100">{ (set: $outcome1 to &quot;You growl and the bear runs away whimpering. (align: &#39;==&gt;&#39;)[[[Continue-&gt;You Win]]]&quot;) (set: $outcome2 to &quot;You growl but the bear isn&#39;t intimidated and kills you. (align: &#39;==&gt;&#39;)[[[Continue-&gt;Game Over]]]&quot;) (either: $outcome1, $outcome1, $outcome1, $outcome1, $outcome1, $outcome1, $outcome1, $outcome1, $outcome1, $outcome2) }</tw-passagedata><tw-passagedata pid="2" name="Bear Encounter" tags="" position="525,25" size="100,100">You find yourself face to face with a $enemy. &lt;u&gt;What do you do?&lt;/u&gt; 
+
+{(set: $links to (array: &quot;Flee&quot;, &quot;Hide&quot;, &quot;Sing to it&quot;, &quot;Play Dead&quot;, &quot;Attack&quot;, &quot;Look Around&quot;, &quot;Climb a Tree&quot;, &quot;Take a Nap&quot;, &quot;Feed It&quot;, &quot;Yell&quot;, &quot;Call a Friend&quot;))}
+
+($link_grid: $links)
+
+&lt;span class=&quot;flex-box&quot;&gt;
+    &lt;span class=&quot;flex-item&quot;&gt;
+    test
+    &lt;/span&gt;
+    &lt;span class=&quot;flex-item&quot;&gt;
+    test test
+    &lt;/span&gt;
+    &lt;span class=&quot;flex-item&quot;&gt;
+    test
+    &lt;/span&gt;
+    &lt;span class=&quot;flex-item&quot;&gt;
+    test test test
+    &lt;/span&gt;
+    &lt;span class=&quot;flex-item&quot;&gt;
+    test
+    &lt;/span&gt;
+&lt;/span&gt;</tw-passagedata><tw-passagedata pid="3" name="Call a Friend" tags="" position="650,150" size="100,100">{ (set: $outcome1 to &quot;You call for a friend but sadly you have no friends. The bear cries for you and feels your pain. You die of heartache. The bear gives you a proper burial in his stomach. (align: &#39;==&gt;&#39;)[[[Continue-&gt;Game Over]]]&quot;) (set: $outcome2 to &quot;You call for a friend but sadly you have no friends. The bear cries for you and feels your pain but bears have gotta eat too. The bear sates his hunger as he wipes away the final tear. (align: &#39;==&gt;&#39;)[[[Continue-&gt;Game Over]]]&quot;) (set: $outcome3 to &quot;You call for a friend but sadly you have no friends. The bear cries for you and feels your pain. You form a lasting friendship with a bond stronger than most. You live out the rest of your lives having wonderful adventures together. (align: &#39;==&gt;&#39;)[[[Continue-&gt;You Win]]]&quot;) (either: $outcome1, $outcome1, $outcome1, $outcome1, $outcome1, $outcome2, $outcome2, $outcome3) }</tw-passagedata><tw-passagedata pid="4" name="Changelog" tags="" position="275,25" size="100,100">(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;X&quot;)[&#39;&#39;Changes since Pv1.0:&#39;&#39;]&lt;small&gt;• Updated to a modern html format.&lt;/small&gt;
 &lt;small&gt;• Built using Twine 2 with Harlowe.&lt;/small&gt;
 &lt;small&gt;• Added new random outcomes to some choices.&lt;/small&gt;
 &lt;small&gt;• Changed wording and grammar to flow and sound better.&lt;/small&gt;
 &lt;small&gt;• Added Easter eggs.&lt;/small&gt;
-(align:&quot;==&gt;&quot;)[($pixel_box: &quot;[[Back-&gt;Title Screen]]&quot;)]</tw-passagedata><tw-passagedata pid="5" name="Charge Wall" tags="" position="900,275" size="100,100">{ (set: $outcome1 to &quot;You charge it, fall over, and the bear kills you. (align: &#39;==&gt;&#39;)[[[Continue-&gt;Game Over]]]&quot;) (set: $outcome2 to &quot;You break through and escape! (align: &#39;==&gt;&#39;)[[[Continue-&gt;You Win]]]&quot;) (either: $outcome1, $outcome1, $outcome1, $outcome1, $outcome2) }</tw-passagedata><tw-passagedata pid="6" name="Climb Wall" tags="" position="1025,275" size="100,100">You climb the wall. The bear comes after you and hits into it. You escape!</tw-passagedata><tw-passagedata pid="7" name="Climb a Tree" tags="" position="150,150" size="100,100">You climb the tree. Do you look? [[Left-&gt;Tree Left]] [[Right-&gt;Tree Right]]</tw-passagedata><tw-passagedata pid="8" name="Dance" tags="" position="25,400" size="100,100">You dance but bugs come and eat your flesh. The bear eats the remains.</tw-passagedata><tw-passagedata pid="9" name="Dislikes Name" tags="" position="1025,400" size="100,100">Unfortunately you don&#39;t know the bear&#39;s favorite name. The bear doesn&#39;t like your choice. He kills you.</tw-passagedata><tw-passagedata pid="10" name="Don&#39;t Play Fingerpaints" tags="" position="775,525" size="100,100">The bear gets mad and kills you. He plays fingerpaints on your chest.</tw-passagedata><tw-passagedata pid="11" name="Eat Rock" tags="" position="775,275" size="100,100">You put the rock in your mouth and choke to death.</tw-passagedata><tw-passagedata pid="12" name="Faithfully" tags="" position="150,400" size="100,100">You sing and the bear is forever yours, faithfully. You run away and get married.</tw-passagedata><tw-passagedata pid="13" name="Feed It" tags="" position="400,150" size="100,100">Which Food? [[Peanut Butter-&gt;Feed Peanut Butter]] [[Wheaties-&gt;Feed Wheaties]]</tw-passagedata><tw-passagedata pid="14" name="Feed Peanut Butter" tags="" position="1150,400" size="100,100">You feed the bear and his mouth gets stuck. You escape(either: &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot; as the bear mumbles for a glass of milk&quot;, &quot; as the bear tries to free his mouth&quot;)!</tw-passagedata><tw-passagedata pid="15" name="Feed Wheaties" tags="" position="25,525" size="100,100">You feed the bear and he becomes a great athlete. He whacks your head off with a tennis racket.</tw-passagedata><tw-passagedata pid="16" name="Fingerpaints" tags="" position="525,525" size="100,100">You wake up and the bear wants to play fingerpaints. Play fingerpaints? [[Yes-&gt;Play Fingerpaints]] [[No-&gt;Don&#39;t Play Fingerpaints]]</tw-passagedata><tw-passagedata pid="17" name="Flee" tags="" position="650,25" size="100,100">You decide to flee. What pace? [[Jog]] [[Run]]</tw-passagedata><tw-passagedata pid="18" name="Game Over" tags="" position="1025,525" size="100,100">=&gt;&lt;= ###Game Over! Play Again? [[Yes-&gt;Start]] [[No-&gt;Start]]</tw-passagedata><tw-passagedata pid="19" name="Get Ye Beaker" tags="" position="1150,275" size="100,100">You cannot get ye beaker. The bear kills you.</tw-passagedata><tw-passagedata pid="20" name="Hide" tags="" position="775,25" size="100,100">You decide to hide. Where? [[Under a Bush]] [[In the Cave]]</tw-passagedata><tw-passagedata pid="21" name="In the Cave" tags="" position="900,150" size="100,100">You walk into the cave. As you&#39;re walking along you fall down a mineshaft and die.</tw-passagedata><tw-passagedata pid="22" name="Jog" tags="" position="1025,150" size="100,100">You and the bear jog together. When you finish, you both agree that was a refreshing workout.</tw-passagedata><tw-passagedata pid="23" name="Likes Name" tags="" position="900,400" size="100,100">The bear loves the name $name. You become great friends.</tw-passagedata><tw-passagedata pid="24" name="Look Around" tags="" position="25,150" size="100,100">You decide to look [[Left-&gt;Look Left]] [[Right-&gt;Look Right]] [[Back-&gt;Look Back]] [[Up-&gt;Look Up]] [[Down-&gt;Look Down]]</tw-passagedata><tw-passagedata pid="25" name="Look Back" tags="" position="275,275" size="100,100">You look back and see a beaker. Do you? [[Get Ye Beaker]] [[Dance]]</tw-passagedata><tw-passagedata pid="26" name="Look Down" tags="" position="525,275" size="100,100">You look down and see some mushrooms. You eat them and realize they were 1-up mushrooms. The bear kills you. =&gt;&lt;= ###Respawn! ==&gt; [[Continue-&gt;Start]]</tw-passagedata><tw-passagedata pid="27" name="Look Left" tags="" position="25,275" size="100,100">You look left and see a rock. Do you? [[Throw it-&gt;Throw Rock]] [[Eat it-&gt;Eat Rock]]</tw-passagedata><tw-passagedata pid="28" name="Look Right" tags="" position="150,275" size="100,100">You look right and see a brick wall. Do you? [[Charge it-&gt;Charge Wall]] [[Climb it-&gt;Climb Wall]]</tw-passagedata><tw-passagedata pid="29" name="Look Up" tags="" position="400,275" size="100,100">You look up and see a meteor (either: &quot;hurtling straight for&quot;, &quot;screaming toward&quot;) earth. It kills you on impact.</tw-passagedata><tw-passagedata pid="30" name="Napping" tags="" position="400,525" size="100,100">==&gt; [[Continue-&gt;Fingerpaints]]</tw-passagedata><tw-passagedata pid="31" name="Oh Beary" tags="" position="400,400" size="100,100">You sing and the bear holds on, holds onto your neck. You suffocate and die.</tw-passagedata><tw-passagedata pid="32" name="Play Dead" tags="" position="1025,25" size="100,100">You lie down and the bear kills you.</tw-passagedata><tw-passagedata pid="33" name="Play Fingerpaints" tags="" position="650,525" size="100,100">{ (set: $outcome1 to &quot;You and the bear play fingerpaints. You have lots of fun! (align: &#39;==&gt;&#39;)[[[Continue-&gt;You Win]]]&quot;) (set: $outcome2 to &quot;You and the bear play fingerpaints. You have lots of fun! The bear kills you anyway. (align: &#39;==&gt;&#39;)[[[Continue-&gt;Game Over]]]&quot;) (either: $outcome1, $outcome1, $outcome1, $outcome1, $outcome2) }</tw-passagedata><tw-passagedata pid="34" name="Run" tags="" position="1150,150" size="100,100">You run but the bear catches you and kills you.</tw-passagedata><tw-passagedata pid="35" name="Sing to it" tags="" position="900,25" size="100,100">You decide to sing. [[Faithfully]] [[Under Pressure]] [[Oh Beary]] [[Thriller]]</tw-passagedata><tw-passagedata pid="36" name="Start" tags="" position="400,25" size="100,100">(goto: &quot;Bear Encounter&quot;)</tw-passagedata><tw-passagedata pid="37" name="Take a Nap" tags="" position="275,150" size="100,100">You and the bear lie down and take a nap. =&gt;&lt;= (css: &quot;font-size:1.3em&quot;)[z](live: .4s)[(if: time &gt; .4s)[(css: &quot;font-size:1.6em&quot;)[z]](if: time &gt; .8s)[(css: &quot;font-size:1.9em&quot;)[z]](if: time &gt; 1.2s)[(css: &quot;font-size:2.2em&quot;)[z]](if: time &gt; 1.6s)[(css: &quot;font-size:2.5em&quot;)[z]](if: time &gt; 2s)[(css: &quot;font-size:2.8em&quot;)[z]](if: time &gt; 2.4s)[(goto: &quot;Napping&quot;)]](css: &quot;font-size:2.8em; visibility: hidden;&quot;)[z]</tw-passagedata><tw-passagedata pid="38" name="Thriller" tags="" position="525,400" size="100,100">You sing and the bear is so thrilled he lets you moonwalk to freedom.</tw-passagedata><tw-passagedata pid="39" name="Throw Rock" tags="" position="650,275" size="100,100">You throw it and it hits the bear. He kills you in his rage.</tw-passagedata><tw-passagedata pid="40" name="Title Screen" tags="" position="150,25" size="100,100">
-(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;X&quot;)[($h1: &quot;$Enemy Encounter&quot;)
+(align:&quot;==&gt;&quot;)[($pixel_box: &quot;[[Back-&gt;Title Screen]]&quot;)]</tw-passagedata><tw-passagedata pid="5" name="Charge Wall" tags="" position="900,275" size="100,100">{ (set: $outcome1 to &quot;You charge it, fall over, and the bear kills you. (align: &#39;==&gt;&#39;)[[[Continue-&gt;Game Over]]]&quot;) (set: $outcome2 to &quot;You break through and escape! (align: &#39;==&gt;&#39;)[[[Continue-&gt;You Win]]]&quot;) (either: $outcome1, $outcome1, $outcome1, $outcome1, $outcome2) }</tw-passagedata><tw-passagedata pid="6" name="Climb Wall" tags="" position="1025,275" size="100,100">You climb the wall. The bear comes after you and hits into it. You escape!</tw-passagedata><tw-passagedata pid="7" name="Climb a Tree" tags="" position="150,150" size="100,100">You climb the tree. Do you look? [[Left-&gt;Tree Left]] [[Right-&gt;Tree Right]]</tw-passagedata><tw-passagedata pid="8" name="Dance" tags="" position="25,400" size="100,100">You dance but bugs come and eat your flesh. The bear eats the remains.</tw-passagedata><tw-passagedata pid="9" name="Dislikes Name" tags="" position="1025,400" size="100,100">Unfortunately you don&#39;t know the bear&#39;s favorite name. The bear doesn&#39;t like your choice. He kills you.</tw-passagedata><tw-passagedata pid="10" name="Don&#39;t Play Fingerpaints" tags="" position="775,525" size="100,100">The bear gets mad and kills you. He plays fingerpaints on your chest.</tw-passagedata><tw-passagedata pid="11" name="Eat Rock" tags="" position="775,275" size="100,100">You put the rock in your mouth and choke to death.</tw-passagedata><tw-passagedata pid="12" name="Faithfully" tags="" position="150,400" size="100,100">You sing and the bear is forever yours, faithfully. You run away and get married.</tw-passagedata><tw-passagedata pid="13" name="Feed It" tags="" position="400,150" size="100,100">Which Food? [[Peanut Butter-&gt;Feed Peanut Butter]] [[Wheaties-&gt;Feed Wheaties]]</tw-passagedata><tw-passagedata pid="14" name="Feed Peanut Butter" tags="" position="1150,400" size="100,100">You feed the bear and his mouth gets stuck. You escape(either: &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot; as the bear mumbles for a glass of milk&quot;, &quot; as the bear tries to free his mouth&quot;)!</tw-passagedata><tw-passagedata pid="15" name="Feed Wheaties" tags="" position="25,525" size="100,100">You feed the bear and he becomes a great athlete. He whacks your head off with a tennis racket.</tw-passagedata><tw-passagedata pid="16" name="Fingerpaints" tags="" position="525,525" size="100,100">You wake up and the bear wants to play fingerpaints. Play fingerpaints? [[Yes-&gt;Play Fingerpaints]] [[No-&gt;Don&#39;t Play Fingerpaints]]</tw-passagedata><tw-passagedata pid="17" name="Flee" tags="" position="650,25" size="100,100">You decide to flee. What pace? [[Jog]] [[Run]]</tw-passagedata><tw-passagedata pid="18" name="Game Over" tags="" position="1025,525" size="100,100">=&gt;&lt;= ###Game Over! Play Again? [[Yes-&gt;Start]] [[No-&gt;Start]]</tw-passagedata><tw-passagedata pid="19" name="Get Ye Beaker" tags="" position="1150,275" size="100,100">You cannot get ye beaker. The bear kills you.</tw-passagedata><tw-passagedata pid="20" name="Hide" tags="" position="775,25" size="100,100">You decide to hide. Where? [[Under a Bush]] [[In the Cave]]</tw-passagedata><tw-passagedata pid="21" name="In the Cave" tags="" position="900,150" size="100,100">You walk into the cave. As you&#39;re walking along you fall down a mineshaft and die.</tw-passagedata><tw-passagedata pid="22" name="Jog" tags="" position="1025,150" size="100,100">You and the bear jog together. When you finish, you both agree that was a refreshing workout.</tw-passagedata><tw-passagedata pid="23" name="Likes Name" tags="" position="900,400" size="100,100">The bear loves the name $name. You become great friends.</tw-passagedata><tw-passagedata pid="24" name="Look Around" tags="" position="25,150" size="100,100">You decide to look [[Left-&gt;Look Left]] [[Right-&gt;Look Right]] [[Back-&gt;Look Back]] [[Up-&gt;Look Up]] [[Down-&gt;Look Down]]</tw-passagedata><tw-passagedata pid="25" name="Look Back" tags="" position="275,275" size="100,100">You look back and see a beaker. Do you? [[Get Ye Beaker]] [[Dance]]</tw-passagedata><tw-passagedata pid="26" name="Look Down" tags="" position="525,275" size="100,100">You look down and see some mushrooms. You eat them and realize they were 1-up mushrooms. The bear kills you. =&gt;&lt;= ###Respawn! ==&gt; [[Continue-&gt;Start]]</tw-passagedata><tw-passagedata pid="27" name="Look Left" tags="" position="25,275" size="100,100">You look left and see a rock. Do you? [[Throw it-&gt;Throw Rock]] [[Eat it-&gt;Eat Rock]]</tw-passagedata><tw-passagedata pid="28" name="Look Right" tags="" position="150,275" size="100,100">You look right and see a brick wall. Do you? [[Charge it-&gt;Charge Wall]] [[Climb it-&gt;Climb Wall]]</tw-passagedata><tw-passagedata pid="29" name="Look Up" tags="" position="400,275" size="100,100">You look up and see a meteor (either: &quot;hurtling straight for&quot;, &quot;screaming toward&quot;) earth. It kills you on impact.</tw-passagedata><tw-passagedata pid="30" name="Napping" tags="" position="400,525" size="100,100">==&gt; [[Continue-&gt;Fingerpaints]]</tw-passagedata><tw-passagedata pid="31" name="Oh Beary" tags="" position="400,400" size="100,100">You sing and the bear holds on, holds onto your neck. You suffocate and die.</tw-passagedata><tw-passagedata pid="32" name="Play Dead" tags="" position="1025,25" size="100,100">You lie down and the bear kills you.</tw-passagedata><tw-passagedata pid="33" name="Play Fingerpaints" tags="" position="650,525" size="100,100">{ (set: $outcome1 to &quot;You and the bear play fingerpaints. You have lots of fun! (align: &#39;==&gt;&#39;)[[[Continue-&gt;You Win]]]&quot;) (set: $outcome2 to &quot;You and the bear play fingerpaints. You have lots of fun! The bear kills you anyway. (align: &#39;==&gt;&#39;)[[[Continue-&gt;Game Over]]]&quot;) (either: $outcome1, $outcome1, $outcome1, $outcome1, $outcome2) }</tw-passagedata><tw-passagedata pid="34" name="Run" tags="" position="1150,150" size="100,100">You run but the bear catches you and kills you.</tw-passagedata><tw-passagedata pid="35" name="Sing to it" tags="" position="900,25" size="100,100">You decide to sing. [[Faithfully]] [[Under Pressure]] [[Oh Beary]] [[Thriller]]</tw-passagedata><tw-passagedata pid="36" name="Start" tags="" position="400,25" size="100,100">(goto: &quot;Bear Encounter&quot;)</tw-passagedata><tw-passagedata pid="37" name="Take a Nap" tags="" position="275,150" size="100,100">You and the bear lie down and take a nap.
+(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;X&quot;)[(css: &quot;font-size:1.3em&quot;)[z](live: .4s)[(if: time &gt; .4s)[(css: &quot;font-size:1.6em&quot;)[z]](if: time &gt; .8s)[(css: &quot;font-size:1.9em&quot;)[z]](if: time &gt; 1.2s)[(css: &quot;font-size:2.2em&quot;)[z]](if: time &gt; 1.6s)[(css: &quot;font-size:2.5em&quot;)[z]](if: time &gt; 2s)[(css: &quot;font-size:2.8em&quot;)[z]](if: time &gt; 2.4s)[(goto: &quot;Napping&quot;)]](css: &quot;font-size:2.8em; visibility: hidden;&quot;)[z]]</tw-passagedata><tw-passagedata pid="38" name="Thriller" tags="" position="525,400" size="100,100">You sing and the bear is so thrilled he lets you moonwalk to freedom.</tw-passagedata><tw-passagedata pid="39" name="Throw Rock" tags="" position="650,275" size="100,100">You throw it and it hits the bear. He kills you in his rage.</tw-passagedata><tw-passagedata pid="40" name="Title Screen" tags="" position="150,25" size="100,100">(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;X&quot;)[($h1: &quot;$Enemy Encounter&quot;)
 ($h2: &quot;Version 2.0&quot;)
 ($h3: &quot;© Bret Anderson&quot;)
 &lt;div class=&quot;spacer&quot;&gt;&lt;/div&gt;
@@ -132,6 +178,27 @@ tw-sidebar {
     )
   (set: $enemy to (lowercase: $Enemy))
   (set: $gender to (either: &quot;male&quot;, &quot;male&quot;, &quot;female&quot;))
+ 
+  (if: $gender is &#39;male&#39;) [
+    (set: $subject to &quot;he&quot;)
+    (set: $object to &quot;him&quot;)
+    (set: $possessive to &quot;his&quot;)
+    (set: $reflexive to &quot;himself&quot;)
+    (set: $Subject to &quot;He&quot;)
+    (set: $Object to &quot;Him&quot;)
+    (set: $Possessive to &quot;His&quot;)
+    (set: $Reflexive to &quot;Himself&quot;)
+  ]
+  (else:) [
+    (set: $subject to &quot;she&quot;)
+    (set: $object to &quot;her&quot;)
+    (set: $possessive to &quot;hers&quot;)
+    (set: $reflexive to &quot;herself&quot;)
+    (set: $Subject to &quot;She&quot;)
+    (set: $Object to &quot;Her&quot;)
+    (set: $Possessive to &quot;Hers&quot;)
+    (set: $Reflexive to &quot;Herself&quot;)
+  ]
 }
 
 {
@@ -141,8 +208,6 @@ tw-sidebar {
       (set: $next to $tags&#39;s (2))
       (align: &quot;==&gt;&quot;)[ (link-goto: &quot;Continue&quot;, $next.replace(&quot;-&quot;, &quot; &quot;)) ]
     ]
-  (replace: &quot;bear&quot;)[$enemy]
-  (replace: &quot;Bear&quot;)[$Enemy]
   (if: $gender is &#39;female&#39;)
     [
       (replace: &quot; he &quot;)[ she ]
@@ -167,8 +232,19 @@ tw-sidebar {
     (output:) + (css: &quot;font-size: 1.25em;&quot;)[_text]
 ]))
 
-(set: $pixel_box to (macro: str-type _text, [
-(output:)[&lt;span class=&quot;pixel-corners--wrapper&quot;&gt;&lt;span class=&quot;pixel-corners&quot;&gt;_text&lt;/span&gt;&lt;/span&gt;]
+(set: $pixel_box to (macro: any-type _content, [
+(output:)[&lt;span class=&quot;pixel-corners--wrapper&quot;&gt;&lt;span class=&quot;pixel-corners&quot;&gt;_content&lt;/span&gt;&lt;/span&gt;]
+]))
+
+(set: $pixel_link to (macro: str-type _link, [
+(output:)[($pixel_box: (link-goto: _link))]
+]))
+
+(set: $link_grid to (macro: array-type _links, [
+(output:)[&lt;span class=&quot;flex-box&quot;&gt;
+  {(for: each _item, ..._links)[
+    &lt;span class=&quot;flex-item&quot;&gt;($pixel_link: _item)&lt;/span&gt;
+]}&lt;/span&gt;]
 ]))
 }
 

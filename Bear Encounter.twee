@@ -23,7 +23,29 @@ Bear Encounter
 
 
 :: Bear Encounter {"position":"525,25","size":"100,100"}
-You find yourself face to face with a bear. <u>What do you do?</u> [[Flee]] [[Hide]] [[Sing to it]] [[Play Dead]] [[Attack]] [[Look Around]] [[Climb a Tree]] [[Take a Nap]] [[Feed It]] [[Yell]] [[Call a Friend]]
+You find yourself face to face with a $enemy. <u>What do you do?</u> 
+
+{(set: $links to (array: "Flee", "Hide", "Sing to it", "Play Dead", "Attack", "Look Around", "Climb a Tree", "Take a Nap", "Feed It", "Yell", "Call a Friend"))}
+
+($link_grid: $links)
+
+<span class="flex-box">
+    <span class="flex-item">
+    test
+    </span>
+    <span class="flex-item">
+    test test
+    </span>
+    <span class="flex-item">
+    test
+    </span>
+    <span class="flex-item">
+    test test test
+    </span>
+    <span class="flex-item">
+    test
+    </span>
+</span>
 
 
 :: Call a Friend {"position":"650,150","size":"100,100"}
@@ -171,6 +193,27 @@ You run but the bear catches you and kills you.
     )
   (set: $enemy to (lowercase: $Enemy))
   (set: $gender to (either: "male", "male", "female"))
+ 
+  (if: $gender is 'male') [
+    (set: $subject to "he")
+    (set: $object to "him")
+    (set: $possessive to "his")
+    (set: $reflexive to "himself")
+    (set: $Subject to "He")
+    (set: $Object to "Him")
+    (set: $Possessive to "His")
+    (set: $Reflexive to "Himself")
+  ]
+  (else:) [
+    (set: $subject to "she")
+    (set: $object to "her")
+    (set: $possessive to "hers")
+    (set: $reflexive to "herself")
+    (set: $Subject to "She")
+    (set: $Object to "Her")
+    (set: $Possessive to "Hers")
+    (set: $Reflexive to "Herself")
+  ]
 }
 
 {
@@ -180,8 +223,6 @@ You run but the bear catches you and kills you.
       (set: $next to $tags's (2))
       (align: "==>")[ (link-goto: "Continue", $next.replace("-", " ")) ]
     ]
-  (replace: "bear")[$enemy]
-  (replace: "Bear")[$Enemy]
   (if: $gender is 'female')
     [
       (replace: " he ")[ she ]
@@ -206,8 +247,19 @@ You run but the bear catches you and kills you.
     (output:) + (css: "font-size: 1.25em;")[_text]
 ]))
 
-(set: $pixel_box to (macro: str-type _text, [
-(output:)[<span class="pixel-corners--wrapper"><span class="pixel-corners">_text</span></span>]
+(set: $pixel_box to (macro: any-type _content, [
+(output:)[<span class="pixel-corners--wrapper"><span class="pixel-corners">_content</span></span>]
+]))
+
+(set: $pixel_link to (macro: str-type _link, [
+(output:)[($pixel_box: (link-goto: _link))]
+]))
+
+(set: $link_grid to (macro: array-type _links, [
+(output:)[<span class="flex-box">
+  {(for: each _item, ..._links)[
+    <span class="flex-item">($pixel_link: _item)</span>
+]}</span>]
 ]))
 }
 
@@ -223,7 +275,8 @@ You decide to sing. [[Faithfully]] [[Under Pressure]] [[Oh Beary]] [[Thriller]]
 
 
 :: Take a Nap {"position":"275,150","size":"100,100"}
-You and the bear lie down and take a nap. =><= (css: "font-size:1.3em")[z](live: .4s)[(if: time > .4s)[(css: "font-size:1.6em")[z]](if: time > .8s)[(css: "font-size:1.9em")[z]](if: time > 1.2s)[(css: "font-size:2.2em")[z]](if: time > 1.6s)[(css: "font-size:2.5em")[z]](if: time > 2s)[(css: "font-size:2.8em")[z]](if: time > 2.4s)[(goto: "Napping")]](css: "font-size:2.8em; visibility: hidden;")[z]
+You and the bear lie down and take a nap.
+(align:"=><=")+(box:"X")[(css: "font-size:1.3em")[z](live: .4s)[(if: time > .4s)[(css: "font-size:1.6em")[z]](if: time > .8s)[(css: "font-size:1.9em")[z]](if: time > 1.2s)[(css: "font-size:2.2em")[z]](if: time > 1.6s)[(css: "font-size:2.5em")[z]](if: time > 2s)[(css: "font-size:2.8em")[z]](if: time > 2.4s)[(goto: "Napping")]](css: "font-size:2.8em; visibility: hidden;")[z]]
 
 
 :: Thriller {"position":"525,400","size":"100,100"}
@@ -235,7 +288,6 @@ You throw it and it hits the bear. He kills you in his rage.
 
 
 :: Title Screen {"position":"150,25","size":"100,100"}
-
 (align:"=><=")+(box:"X")[($h1: "$Enemy Encounter")
 ($h2: "Version 2.0")
 ($h3: "© Bret Anderson")
@@ -292,6 +344,8 @@ You yell yipee and square dance with the bear. When you finish the bear thanks y
 }
 
 tw-story {
+  width: 100vw;
+  padding-top: 3.5rem;
   background-color: #99cc66;
   color: #333;
   display: flex;
@@ -378,4 +432,26 @@ tw-sidebar {
 
 .pixel-corners::after {
   margin: -2px;
+}
+
+.flex-box {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: stretch;
+  row-gap: 10px;
+}
+.flex-boxz {
+  display: grid;
+  /* Adjust the '200px' below to dictate the exact width of your boxes */
+  grid-template-columns: repeat(auto-fill, minmax(300px, auto));
+  
+  /* Grid gaps bypass Harlowe's hidden tags completely */
+  row-gap: 20px;     
+  column-gap: 15px;  
+}
+
+.flex-item {
+  padding-bottom: 150px;
 }
