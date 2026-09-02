@@ -1,0 +1,586 @@
+﻿{
+ "scenarios": [
+   {
+     "scenario": "Attack",
+     "text": "{ (either: $outcome1, $outcome1, $outcome1, $outcome1, $outcome1, $outcome1, $outcome1, $outcome1, $outcome1, $outcome2) }",
+     "links": [
+       "Continue->You Win",
+       "Continue->Game Over"
+     ],
+     "variants": [
+       {
+         "outcome": "Win",
+         "probability": "90%",
+         "text": "You growl and the bear runs away whimpering. (align: '==>')[[[Continue->You Win]]]"
+       },
+       {
+         "outcome": "Game Over",
+         "probability": "10%",
+         "text": "You growl but the bear isn't intimidated and kills you. (align: '==>')[[[Continue->Game Over]]]"
+       }
+     ]
+   },
+   {
+     "scenario": "Bear Encounter",
+     "text": "You find yourself face to face with a $enemy. <u>What do you do?</u> \n\n{(set: $links to (array: \"Flee\", \"Hide\", \"Sing to it\", \"Play Dead\", \"Attack\", \"Look Around\", \"Climb a Tree\", \"Take a Nap\", \"Feed It\", \"Yell\", \"Call a Friend\"))}\n\n($link_grid: $links)",
+     "links": [
+       "Flee",
+       "Hide",
+       "Sing to it",
+       "Play Dead",
+       "Attack",
+       "Look Around",
+       "Climb a Tree",
+       "Take a Nap",
+       "Feed It",
+       "Yell",
+       "Call a Friend"
+     ],
+     "variants": []
+   },
+   {
+     "scenario": "Call a Friend",
+     "text": "{ (either: $outcome1, $outcome1, $outcome1, $outcome1, $outcome1, $outcome2, $outcome2, $outcome3) }",
+     "links": [
+       "Continue->Game Over",
+       "Continue->You Win"
+     ],
+     "variants": [
+       {
+         "outcome": "Game Over",
+         "probability": "62.5%",
+         "text": "You call for a friend but sadly you have no friends. The bear cries for you and feels your pain. You die of heartache. The bear gives you a proper burial in his stomach. (align: '==>')[[[Continue->Game Over]]]"
+       },
+       {
+         "outcome": "Game Over",
+         "probability": "25%",
+         "text": "You call for a friend but sadly you have no friends. The bear cries for you and feels your pain but bears have gotta eat too. The bear sates his hunger as he wipes away the final tear. (align: '==>')[[[Continue->Game Over]]]"
+       },
+       {
+         "outcome": "Win",
+         "probability": "12.5%",
+         "text": "You call for a friend but sadly you have no friends. The bear cries for you and feels your pain. You form a lasting friendship with a bond stronger than most. You live out the rest of your lives having wonderful adventures together. (align: '==>')[[[Continue->You Win]]]"
+       }
+     ]
+   },
+   {
+     "scenario": "Changelog",
+     "text": "(align:\"=><=\")+(box:\"X\")[''Changes since Pv1.0:'']<small>• Updated to a modern html format.</small>\n<small>• Built using Twine 2 with Harlowe.</small>\n<small>• Added new random outcomes to some choices.</small>\n<small>• Changed wording and grammar to flow and sound better.</small>\n<small>• Added Easter eggs.</small>\n(align:\"==>\")[($pixel_box: \"[[Back->Title Screen]]\")]",
+     "links": [
+       "Back->Title Screen"
+     ],
+     "variants": []
+   },
+   {
+     "scenario": "Charge Wall",
+     "text": "{ (either: $outcome1, $outcome1, $outcome1, $outcome1, $outcome2) }",
+     "links": [
+       "Continue->Game Over",
+       "Continue->You Win"
+     ],
+     "variants": [
+       {
+         "outcome": "Game Over",
+         "probability": "80%",
+         "text": "You charge it, fall over, and the bear kills you. (align: '==>')[[[Continue->Game Over]]]"
+       },
+       {
+         "outcome": "Win",
+         "probability": "20%",
+         "text": "You break through and escape! (align: '==>')[[[Continue->You Win]]]"
+       }
+     ]
+   },
+   {
+     "scenario": "Climb Wall",
+     "text": "You climb the wall. The bear comes after you and hits into it. You escape!",
+     "links": [],
+     "variants": [
+       {
+         "outcome": "Win",
+         "probability": "100%",
+         "text": "You climb the wall. The bear comes after you and hits into it. You escape!"
+       }
+     ]
+   },
+   {
+     "scenario": "Climb a Tree",
+     "text": "You climb the tree. Do you look? [[Left->Tree Left]] [[Right->Tree Right]]",
+     "links": [
+       "Left->Tree Left",
+       "Right->Tree Right"
+     ],
+     "variants": []
+   },
+   {
+     "scenario": "Dance",
+     "text": "You dance but bugs come and eat your flesh. The bear eats the remains.",
+     "links": [],
+     "variants": [
+       {
+         "outcome": "Game Over",
+         "probability": "100%",
+         "text": "You dance but bugs come and eat your flesh. The bear eats the remains."
+       }
+     ]
+   },
+   {
+     "scenario": "Dislikes Name",
+     "text": "Unfortunately you don't know the bear's favorite name. The bear doesn't like your choice. He kills you.",
+     "links": [],
+     "variants": [
+       {
+         "outcome": "Game Over",
+         "probability": "100%",
+         "text": "Unfortunately you don't know the bear's favorite name. The bear doesn't like your choice. He kills you."
+       }
+     ]
+   },
+   {
+     "scenario": "Don't Play Fingerpaints",
+     "text": "The bear gets mad and kills you. He plays fingerpaints on your chest.",
+     "links": [],
+     "variants": [
+       {
+         "outcome": "Game Over",
+         "probability": "100%",
+         "text": "The bear gets mad and kills you. He plays fingerpaints on your chest."
+       }
+     ]
+   },
+   {
+     "scenario": "Eat Rock",
+     "text": "You put the rock in your mouth and choke to death.",
+     "links": [],
+     "variants": [
+       {
+         "outcome": "Game Over",
+         "probability": "100%",
+         "text": "You put the rock in your mouth and choke to death."
+       }
+     ]
+   },
+   {
+     "scenario": "Faithfully",
+     "text": "You sing and the bear is forever yours, faithfully. You run away and get married.",
+     "links": [],
+     "variants": [
+       {
+         "outcome": "Win",
+         "probability": "100%",
+         "text": "You sing and the bear is forever yours, faithfully. You run away and get married."
+       }
+     ]
+   },
+   {
+     "scenario": "Feed It",
+     "text": "Which Food? [[Peanut Butter->Feed Peanut Butter]] [[Wheaties->Feed Wheaties]]",
+     "links": [
+       "Peanut Butter->Feed Peanut Butter",
+       "Wheaties->Feed Wheaties"
+     ],
+     "variants": []
+   },
+   {
+     "scenario": "Feed Peanut Butter",
+     "text": "You feed the bear and his mouth gets stuck. You escape(either: \"\", \"\", \"\", \" as the bear mumbles for a glass of milk\", \" as the bear tries to free his mouth\")!",
+     "links": [],
+     "variants": [
+       {
+         "outcome": "Win",
+         "probability": "100%",
+         "text": "You feed the bear and his mouth gets stuck. You escape(either: \"\", \"\", \"\", \" as the bear mumbles for a glass of milk\", \" as the bear tries to free his mouth\")!"
+       }
+     ]
+   },
+   {
+     "scenario": "Feed Wheaties",
+     "text": "You feed the bear and he becomes a great athlete. He whacks your head off with a tennis racket.",
+     "links": [],
+     "variants": [
+       {
+         "outcome": "Game Over",
+         "probability": "100%",
+         "text": "You feed the bear and he becomes a great athlete. He whacks your head off with a tennis racket."
+       }
+     ]
+   },
+   {
+     "scenario": "Fingerpaints",
+     "text": "You wake up and the bear wants to play fingerpaints. Play fingerpaints? [[Yes->Play Fingerpaints]] [[No->Don't Play Fingerpaints]]",
+     "links": [
+       "Yes->Play Fingerpaints",
+       "No->Don't Play Fingerpaints"
+     ],
+     "variants": []
+   },
+   {
+     "scenario": "Flee",
+     "text": "You decide to flee. What pace? [[Jog]] [[Run]]",
+     "links": [
+       "Jog",
+       "Run"
+     ],
+     "variants": []
+   },
+   {
+     "scenario": "Game Over",
+     "text": "=><= ###Game Over! Play Again? [[Yes->Start]] [[No->Start]]",
+     "links": [
+       "Yes->Start",
+       "No->Start"
+     ],
+     "variants": []
+   },
+   {
+     "scenario": "Get Ye Beaker",
+     "text": "You cannot get ye beaker. The bear kills you.",
+     "links": [],
+     "variants": [
+       {
+         "outcome": "Game Over",
+         "probability": "100%",
+         "text": "You cannot get ye beaker. The bear kills you."
+       }
+     ]
+   },
+   {
+     "scenario": "Hide",
+     "text": "You decide to hide. Where? [[Under a Bush]] [[In the Cave]]",
+     "links": [
+       "Under a Bush",
+       "In the Cave"
+     ],
+     "variants": []
+   },
+   {
+     "scenario": "In the Cave",
+     "text": "You walk into the cave. As you're walking along you fall down a mineshaft and die.",
+     "links": [],
+     "variants": [
+       {
+         "outcome": "Game Over",
+         "probability": "100%",
+         "text": "You walk into the cave. As you're walking along you fall down a mineshaft and die."
+       }
+     ]
+   },
+   {
+     "scenario": "Jog",
+     "text": "You and the bear jog together. When you finish, you both agree that was a refreshing workout.",
+     "links": [],
+     "variants": [
+       {
+         "outcome": "Win",
+         "probability": "100%",
+         "text": "You and the bear jog together. When you finish, you both agree that was a refreshing workout."
+       }
+     ]
+   },
+   {
+     "scenario": "Likes Name",
+     "text": "The bear loves the name $name. You become great friends.",
+     "links": [],
+     "variants": [
+       {
+         "outcome": "Win",
+         "probability": "100%",
+         "text": "The bear loves the name $name. You become great friends."
+       }
+     ]
+   },
+   {
+     "scenario": "Look Around",
+     "text": "You decide to look [[Left->Look Left]] [[Right->Look Right]] [[Back->Look Back]] [[Up->Look Up]] [[Down->Look Down]]",
+     "links": [
+       "Left->Look Left",
+       "Right->Look Right",
+       "Back->Look Back",
+       "Up->Look Up",
+       "Down->Look Down"
+     ],
+     "variants": []
+   },
+   {
+     "scenario": "Look Back",
+     "text": "You look back and see a beaker. Do you? [[Get Ye Beaker]] [[Dance]]",
+     "links": [
+       "Get Ye Beaker",
+       "Dance"
+     ],
+     "variants": []
+   },
+   {
+     "scenario": "Look Down",
+     "text": "You look down and see some mushrooms. You eat them and realize they were 1-up mushrooms. The bear kills you. =><= ###Respawn! ==> [[Continue->Start]]",
+     "links": [
+       "Continue->Start"
+     ],
+     "variants": [
+       {
+         "outcome": "Game Over",
+         "probability": "100%",
+         "text": "You look down and see some mushrooms. You eat them and realize they were 1-up mushrooms. The bear kills you. =><= ###Respawn! ==> [[Continue->Start]]"
+       }
+     ]
+   },
+   {
+     "scenario": "Look Left",
+     "text": "You look left and see a rock. Do you? [[Throw it->Throw Rock]] [[Eat it->Eat Rock]]",
+     "links": [
+       "Throw it->Throw Rock",
+       "Eat it->Eat Rock"
+     ],
+     "variants": []
+   },
+   {
+     "scenario": "Look Right",
+     "text": "You look right and see a brick wall. Do you? [[Charge it->Charge Wall]] [[Climb it->Climb Wall]]",
+     "links": [
+       "Charge it->Charge Wall",
+       "Climb it->Climb Wall"
+     ],
+     "variants": []
+   },
+   {
+     "scenario": "Look Up",
+     "text": "You look up and see a meteor (either: \"hurtling straight for\", \"screaming toward\") earth. It kills you on impact.",
+     "links": [],
+     "variants": [
+       {
+         "outcome": "Game Over",
+         "probability": "100%",
+         "text": "You look up and see a meteor (either: \"hurtling straight for\", \"screaming toward\") earth. It kills you on impact."
+       }
+     ]
+   },
+   {
+     "scenario": "Napping",
+     "text": "==> [[Continue->Fingerpaints]]",
+     "links": [
+       "Continue->Fingerpaints"
+     ],
+     "variants": []
+   },
+   {
+     "scenario": "Oh Beary",
+     "text": "You sing and the bear holds on, holds onto your neck. You suffocate and die.",
+     "links": [],
+     "variants": [
+       {
+         "outcome": "Game Over",
+         "probability": "100%",
+         "text": "You sing and the bear holds on, holds onto your neck. You suffocate and die."
+       }
+     ]
+   },
+   {
+     "scenario": "Play Dead",
+     "text": "You lie down and the bear kills you.",
+     "links": [],
+     "variants": [
+       {
+         "outcome": "Game Over",
+         "probability": "100%",
+         "text": "You lie down and the bear kills you."
+       }
+     ]
+   },
+   {
+     "scenario": "Play Fingerpaints",
+     "text": "{ (either: $outcome1, $outcome1, $outcome1, $outcome1, $outcome2) }",
+     "links": [
+       "Continue->You Win",
+       "Continue->Game Over"
+     ],
+     "variants": [
+       {
+         "outcome": "Win",
+         "probability": "80%",
+         "text": "You and the bear play fingerpaints. You have lots of fun! (align: '==>')[[[Continue->You Win]]]"
+       },
+       {
+         "outcome": "Game Over",
+         "probability": "20%",
+         "text": "You and the bear play fingerpaints. You have lots of fun! The bear kills you anyway. (align: '==>')[[[Continue->Game Over]]]"
+       }
+     ]
+   },
+   {
+     "scenario": "Run",
+     "text": "You run but the bear catches you and kills you.",
+     "links": [],
+     "variants": [
+       {
+         "outcome": "Game Over",
+         "probability": "100%",
+         "text": "You run but the bear catches you and kills you."
+       }
+     ]
+   },
+   {
+     "scenario": "Sing to it",
+     "text": "You decide to sing. [[Faithfully]] [[Under Pressure]] [[Oh Beary]] [[Thriller]]",
+     "links": [
+       "Faithfully",
+       "Under Pressure",
+       "Oh Beary",
+       "Thriller"
+     ],
+     "variants": []
+   },
+   {
+     "scenario": "Start",
+     "text": "(goto: \"Bear Encounter\")",
+     "links": [],
+     "variants": []
+   },
+   {
+     "scenario": "Take a Nap",
+     "text": "You and the bear lie down and take a nap.\n(align:\"=><=\")+(box:\"X\")[(css: \"font-size:1.3em\")[z](live: .4s)[(if: time > .4s)[(css: \"font-size:1.6em\")[z]](if: time > .8s)[(css: \"font-size:1.9em\")[z]](if: time > 1.2s)[(css: \"font-size:2.2em\")[z]](if: time > 1.6s)[(css: \"font-size:2.5em\")[z]](if: time > 2s)[(css: \"font-size:2.8em\")[z]](if: time > 2.4s)[(goto: \"Napping\")]](css: \"font-size:2.8em; visibility: hidden;\")[z]]",
+     "links": [],
+     "variants": []
+   },
+   {
+     "scenario": "Thriller",
+     "text": "You sing and the bear is so thrilled he lets you moonwalk to freedom.",
+     "links": [],
+     "variants": [
+       {
+         "outcome": "Win",
+         "probability": "100%",
+         "text": "You sing and the bear is so thrilled he lets you moonwalk to freedom."
+       }
+     ]
+   },
+   {
+     "scenario": "Throw Rock",
+     "text": "You throw it and it hits the bear. He kills you in his rage.",
+     "links": [],
+     "variants": [
+       {
+         "outcome": "Game Over",
+         "probability": "100%",
+         "text": "You throw it and it hits the bear. He kills you in his rage."
+       }
+     ]
+   },
+   {
+     "scenario": "Title Screen",
+     "text": "(align:\"=><=\")+(box:\"X\")[($h1: \"$Enemy Encounter\")\n($h2: \"Version 2.0\")\n($h3: \"© Bret Anderson\")\n<div class=\"spacer\"></div>\n($pixel_box: \"[[Start]]\")\n\n\n($pixel_box: \"<small>[[Changelog]]</small>\")\n]\n{<!--(transition: \"dissolve\")[$title] (transition: \"dissolve\")[$version] (transition: \"dissolve\")[By $author]--> <!--{ (live: 1s)[ (transition: \"dissolve\")[Loading] (if: time > 4.5s)[(stop:)] ] (live: 5s)[ (if: time > 5s)[(goto: \"Start\")] ] }-->}",
+     "links": [
+       "Start",
+       "Changelog"
+     ],
+     "variants": []
+   },
+   {
+     "scenario": "Tree Left",
+     "text": "You look left and see a pile of splendifferous delkrams. As you wonder what a delkram is, the bear climbs the tree and kills you.",
+     "links": [],
+     "variants": [
+       {
+         "outcome": "Game Over",
+         "probability": "100%",
+         "text": "You look left and see a pile of splendifferous delkrams. As you wonder what a delkram is, the bear climbs the tree and kills you."
+       }
+     ]
+   },
+   {
+     "scenario": "Tree Right",
+     "text": "You look right and see a timid little ostrich. You jump down and run to it. You decide to keep it as a pet.\n(set: $name to (prompt: \"What do you name it?\")) { (if: (lowercase: $name) is 'svenholt')[ (go-to: \"Likes Name\") ](else-if: (lowercase: $name) is 'sanchez')[ (go-to: \"Likes Name\") ](else:)[ (go-to: \"Dislikes Name\") ] }",
+     "links": [],
+     "variants": []
+   },
+   {
+     "scenario": "Under Pressure",
+     "text": "You sing and the bear puts pressure on your skull and kills you.",
+     "links": [],
+     "variants": [
+       {
+         "outcome": "Game Over",
+         "probability": "100%",
+         "text": "You sing and the bear puts pressure on your skull and kills you."
+       }
+     ]
+   },
+   {
+     "scenario": "Under a Bush",
+     "text": "The bear sees you hide, finds you, and kills you.",
+     "links": [],
+     "variants": [
+       {
+         "outcome": "Game Over",
+         "probability": "100%",
+         "text": "The bear sees you hide, finds you, and kills you."
+       }
+     ]
+   },
+   {
+     "scenario": "Yell",
+     "text": "You decide to yell. Yell what? [[Yippee->Yell Yipee]] [[Help->Yell Help]]",
+     "links": [
+       "Yippee->Yell Yipee",
+       "Help->Yell Help"
+     ],
+     "variants": []
+   },
+   {
+     "scenario": "Yell Help",
+     "text": "You yell help and the bear helps himself to your delicious body.",
+     "links": [],
+     "variants": [
+       {
+         "outcome": "Game Over",
+         "probability": "100%",
+         "text": "You yell help and the bear helps himself to your delicious body."
+       }
+     ]
+   },
+   {
+     "scenario": "Yell Yipee",
+     "text": "You yell yipee and square dance with the bear. When you finish the bear thanks you for the dance.",
+     "links": [],
+     "variants": [
+       {
+         "outcome": "Win",
+         "probability": "100%",
+         "text": "You yell yipee and square dance with the bear. When you finish the bear thanks you for the dance."
+       }
+     ]
+   },
+   {
+     "scenario": "You Win",
+     "text": "=><= ##You Win! Play Again? [[Yes->Start]] [[No->Start]]",
+     "links": [
+       "Yes->Start",
+       "No->Start"
+     ],
+     "variants": []
+   },
+   {
+     "scenario": "Setup",
+     "text": "{\n  (set: $Enemy to \n      (either:\n        ...(repeated: 12, \"Bear\"),\n        \"Shark\",\n        \"Horse\",\n        \"Gerbil\"\n      )\n    )\n  (set: $enemy to (lowercase: $Enemy))\n  (set: $gender to (either: \"male\", \"male\", \"female\"))\n \n  (if: $gender is 'male') [\n    (set: $subject to \"he\")\n    (set: $object to \"him\")\n    (set: $possessive to \"his\")\n    (set: $reflexive to \"himself\")\n    (set: $Subject to \"He\")\n    (set: $Object to \"Him\")\n    (set: $Possessive to \"His\")\n    (set: $Reflexive to \"Himself\")\n  ]\n  (else:) [\n    (set: $subject to \"she\")\n    (set: $object to \"her\")\n    (set: $possessive to \"hers\")\n    (set: $reflexive to \"herself\")\n    (set: $Subject to \"She\")\n    (set: $Object to \"Her\")\n    (set: $Possessive to \"Hers\")\n    (set: $Reflexive to \"Herself\")\n  ]\n}\n\n{\n  (set: $tags to (passage:)'s tags)\n  (if: $tags contains \"continue\")\n    [\n      (set: $next to $tags's (2))\n      (align: \"==>\")[ (link-goto: \"Continue\", $next.replace(\"-\", \" \")) ]\n    ]\n  (if: $gender is 'female')\n    [\n      (replace: \" he \")[ she ]\n      (replace: \" him \")[ her ]\n      (replace: \" his \")[ hers ]\n      (replace: \" himself \")[ herself ]\n      (replace: \" He \")[ She ]\n      (replace: \" Him \")[ Her ]\n      (replace: \" His \")[ Hers ]\n      (replace: \" Himself \")[ Herself ]\n    ]\n    \n(set: $h1 to (macro: str-type _text, [\n    (output:) + (css: \"font-size: 2.15em;\")[_text]\n]))\n\n(set: $h2 to (macro: str-type _text, [\n    (output:) + (css: \"font-size: 1.75em;\")[_text]\n]))\n\n(set: $h3 to (macro: str-type _text, [\n    (output:) + (css: \"font-size: 1.25em;\")[_text]\n]))\n\n(set: $pixel_box to (macro: any-type _content, [\n(output:)[<span class=\"pixel-corners--wrapper\"><span class=\"pixel-corners\">_content</span></span>]\n]))\n\n(set: $pixel_link to (macro: str-type _link, [\n(output:)[($pixel_box: (link-goto: _link))]\n]))\n\n(set: $link_grid to (macro: array-type _links, [\n(output:)[<span class=\"flex-box\">\n  {(for: each _item, ..._links)[\n    <span class=\"flex-item\">($pixel_link: _item)</span>\n]}\n</span>]\n]))\n}\n\n(goto: \"Title Screen\")",
+     "links": [],
+     "variants": []
+   }
+ ],
+ "enemies": [
+   {
+     "enemy": "Bear",
+     "probability": "80%"
+   },
+   {
+     "enemy": "Gerbil",
+     "probability": "6.67%"
+   },
+   {
+     "enemy": "Horse",
+     "probability": "6.67%"
+   },
+   {
+     "enemy": "Shark",
+     "probability": "6.67%"
+   }
+ ]
+}
