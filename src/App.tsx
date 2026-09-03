@@ -1,15 +1,26 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
+import data from './assets/data.json';
+import PixelButton from './components/pixel-button/PixelButton';
+import { getRandomByProbability } from './utils/probability-selectors';
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
+  const [enemy, setEnemy] = useState(getRandomByProbability(data.enemies));
 
   return (
     <>
-      <section id="center">
+      <div>
+        <h1>{enemy.type} Encounter</h1>
+        <h2>Version 2.5</h2>
+        <h2>© Bret Anderson</h2>
+      </div>
+
+      <div className='spacer'></div>
+      <PixelButton>Start</PixelButton>
+      <PixelButton>Changelog</PixelButton>
+      <div className='spacer'></div>
+      {/* <section id="center">
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />
           <img src={reactLogo} className="framework" alt="React logo" />
@@ -114,9 +125,9 @@ function App() {
       </section>
 
       <div className="ticks"></div>
-      <section id="spacer"></section>
+      <section id="spacer"></section> */}
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -7,15 +7,36 @@
   color: #333b
 }
 
-tw-story {
+#root {
   width: 100vw;
+  height: 100vh;
   padding-top: 3.5rem;
   background-color: #99cc66;
   color: #333;
   display: flex;
   flex-direction: column;
   font-family: "VT323", monospace;
+  font-size: 24px;
   text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
+  align-items: center;
+}
+
+h1,h2,h3 {
+  color: #333;
+  font-family: "VT323", monospace;
+  text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 2.15em;
+}
+
+h2 {
+  font-size: 1.75em;
+}
+
+h3 {
+  font-size: 1.25em;
 }
 
 tw-link, .enchantment-link {
@@ -27,242 +48,6 @@ tw-link, .enchantment-link {
   color: #333;
 }
 
-tw-sidebar {
-    display: none;
-}
-
 .spacer {
-  height: 15vh;
-}
-
-.pixel-corners--wrapper {
-  /* This is the new shadow effect */
-  filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.1));
-  /* 1. Inline-flex completely neutralizes vertical text baseline padding */
-  display: inline-flex;
-  width: fit-content;
-  height: fit-content;
-  position: relative;
-  box-sizing: border-box;
-  vertical-align: middle;
-
-  clip-path: polygon(0px calc(100% - 8px), 2px calc(100% - 8px), 2px calc(100% - 4px), 4px calc(100% - 4px), 4px calc(100% - 2px), 8px calc(100% - 2px), 8px 100%, calc(100% - 8px) 100%, calc(100% - 8px) calc(100% - 2px), calc(100% - 4px) calc(100% - 2px), calc(100% - 4px) calc(100% - 4px), calc(100% - 2px) calc(100% - 4px), calc(100% - 2px) calc(100% - 8px), 100% calc(100% - 8px), 100% 8px, calc(100% - 2px) 8px, calc(100% - 2px) 4px, calc(100% - 4px) 4px, calc(100% - 4px) 2px, calc(100% - 8px) 2px, calc(100% - 8px) 0px, 8px 0px, 8px 2px, 4px 2px, 4px 4px, 2px 4px, 2px 8px, 0px 8px);
-}
-
-.pixel-corners {
-  /* 2. Forces inner container to behave identically */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  
-  position: relative;
-  box-sizing: border-box;
-  border: 2px solid transparent;
-  
-  /* Safe padding and exact font handling */
-  padding: 6px 12px;
-  line-height: 1.2;
-  
-  clip-path: polygon(0px calc(100% - 8px), 2px calc(100% - 8px), 2px calc(100% - 4px), 4px calc(100% - 4px), 4px calc(100% - 2px), 8px calc(100% - 2px), 8px 100%, calc(100% - 8px) 100%, calc(100% - 8px) calc(100% - 2px), calc(100% - 4px) calc(100% - 2px), calc(100% - 4px) calc(100% - 4px), calc(100% - 2px) calc(100% - 4px), calc(100% - 2px) calc(100% - 8px), 100% calc(100% - 8px), 100% 8px, calc(100% - 2px) 8px, calc(100% - 2px) 4px, calc(100% - 4px) 4px, calc(100% - 4px) 2px, calc(100% - 8px) 2px, calc(100% - 8px) 0px, 8px 0px, 8px 2px, 4px 2px, 4px 4px, 2px 4px, 2px 8px, 0px 8px);
-}
-
-/* 3. Aggressively clears out any paragraph layout blocks injected by Harlowe */
-.pixel-corners p,
-.pixel-corners tw-expression,
-.pixel-corners tw-hook,
-.pixel-corners tw-passage {
-  margin: 0 !important;
-  padding: 0 !important;
-  display: inline !important;
-}
-
-.pixel-corners--wrapper .pixel-corners {
-  clip-path: polygon(2px 8px, 4px 8px, 4px 4px, 8px 4px, 8px 2px, calc(100% - 8px) 2px, calc(100% - 8px) 4px, calc(100% - 4px) 4px, calc(100% - 4px) 8px, calc(100% - 2px) 8px, calc(100% - 2px) calc(100% - 8px), calc(100% - 4px) calc(100% - 8px), calc(100% - 4px) calc(100% - 4px), calc(100% - 8px) calc(100% - 4px), calc(100% - 8px) calc(100% - 2px), 8px calc(100% - 2px), 8px calc(100% - 4px), 4px calc(100% - 4px), 4px calc(100% - 8px), 2px calc(100% - 8px));
-}
-
-.pixel-corners::after,
-.pixel-corners--wrapper::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #333;
-  display: block;
-  pointer-events: none;
-  clip-path: polygon(0px calc(100% - 8px), 2px calc(100% - 8px), 2px calc(100% - 4px), 4px calc(100% - 4px), 4px calc(100% - 2px), 8px calc(100% - 2px), 8px 100%, calc(100% - 8px) 100%, calc(100% - 8px) calc(100% - 2px), calc(100% - 4px) calc(100% - 2px), calc(100% - 4px) calc(100% - 4px), calc(100% - 2px) calc(100% - 4px), calc(100% - 2px) calc(100% - 8px), 100% calc(100% - 8px), 100% 8px, calc(100% - 2px) 8px, calc(100% - 2px) 4px, calc(100% - 4px) 4px, calc(100% - 4px) 2px, calc(100% - 8px) 2px, calc(100% - 8px) 0px, 8px 0px, 8px 2px, 4px 2px, 4px 4px, 2px 4px, 2px 8px, 0px 8px, 0px 50%, 2px 50%, 2px 8px, 4px 8px, 4px 4px, 8px 4px, 8px 2px, calc(100% - 8px) 2px, calc(100% - 8px) 4px, calc(100% - 4px) 4px, calc(100% - 4px) 8px, calc(100% - 2px) 8px, calc(100% - 2px) calc(100% - 8px), calc(100% - 4px) calc(100% - 8px), calc(100% - 4px) calc(100% - 4px), calc(100% - 8px) calc(100% - 4px), calc(100% - 8px) calc(100% - 2px), 8px calc(100% - 2px), 8px calc(100% - 4px), 4px calc(100% - 4px), 4px calc(100% - 8px), 2px calc(100% - 8px), 2px 50%, 0px 50%);
-}
-
-.pixel-corners::after {
-  margin: -2px;
-}
-
-.flex-box {
-  width: 100vw;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: stretch;
-  row-gap: 10px;
-}
-.flex-boxz {
-  display: grid;
-  /* Adjust the '200px' below to dictate the exact width of your boxes */
-  grid-template-columns: repeat(auto-fill, minmax(300px, auto));
-  
-  /* Grid gaps bypass Harlowe's hidden tags completely */
-  row-gap: 20px;     
-  column-gap: 15px;  
-}
-
-.flex-item {
-  padding-bottom: 150px;
-}  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
-}
-
-#center {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
   flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
-}
-
-#next-steps {
-  display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
-
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-#docs {
-  border-right: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
-}
-
-#next-steps ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
-}
-
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
-}
-
-.ticks {
-  position: relative;
-  width: 100%;
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
-  }
-
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
-  }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
-  }
 }
