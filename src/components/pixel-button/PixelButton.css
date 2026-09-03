@@ -1,0 +1,64 @@
+
+
+.pixel-corners--wrapper {
+  /* This is the new shadow effect */
+  filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.1));
+  /* 1. Inline-flex completely neutralizes vertical text baseline padding */
+  display: inline-flex;
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+  box-sizing: border-box;
+  vertical-align: middle;
+  clip-path: polygon(0px calc(100% - 8px), 2px calc(100% - 8px), 2px calc(100% - 4px), 4px calc(100% - 4px), 4px calc(100% - 2px), 8px calc(100% - 2px), 8px 100%, calc(100% - 8px) 100%, calc(100% - 8px) calc(100% - 2px), calc(100% - 4px) calc(100% - 2px), calc(100% - 4px) calc(100% - 4px), calc(100% - 2px) calc(100% - 4px), calc(100% - 2px) calc(100% - 8px), 100% calc(100% - 8px), 100% 8px, calc(100% - 2px) 8px, calc(100% - 2px) 4px, calc(100% - 4px) 4px, calc(100% - 4px) 2px, calc(100% - 8px) 2px, calc(100% - 8px) 0px, 8px 0px, 8px 2px, 4px 2px, 4px 4px, 2px 4px, 2px 8px, 0px 8px);
+  margin: 8px;
+}
+
+.pixel-corners {
+  /* 2. Forces inner container to behave identically */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  position: relative;
+  box-sizing: border-box;
+  border: 2px solid transparent;
+  
+  /* Safe padding and exact font handling */
+  padding: 6px 12px;
+  line-height: 1.2;
+  
+  clip-path: polygon(0px calc(100% - 8px), 2px calc(100% - 8px), 2px calc(100% - 4px), 4px calc(100% - 4px), 4px calc(100% - 2px), 8px calc(100% - 2px), 8px 100%, calc(100% - 8px) 100%, calc(100% - 8px) calc(100% - 2px), calc(100% - 4px) calc(100% - 2px), calc(100% - 4px) calc(100% - 4px), calc(100% - 2px) calc(100% - 4px), calc(100% - 2px) calc(100% - 8px), 100% calc(100% - 8px), 100% 8px, calc(100% - 2px) 8px, calc(100% - 2px) 4px, calc(100% - 4px) 4px, calc(100% - 4px) 2px, calc(100% - 8px) 2px, calc(100% - 8px) 0px, 8px 0px, 8px 2px, 4px 2px, 4px 4px, 2px 4px, 2px 8px, 0px 8px);
+}
+
+/* 3. Aggressively clears out any paragraph layout blocks injected by Harlowe */
+.pixel-corners p,
+.pixel-corners tw-expression,
+.pixel-corners tw-hook,
+.pixel-corners tw-passage {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: inline !important;
+}
+
+.pixel-corners--wrapper .pixel-corners {
+  clip-path: polygon(2px 8px, 4px 8px, 4px 4px, 8px 4px, 8px 2px, calc(100% - 8px) 2px, calc(100% - 8px) 4px, calc(100% - 4px) 4px, calc(100% - 4px) 8px, calc(100% - 2px) 8px, calc(100% - 2px) calc(100% - 8px), calc(100% - 4px) calc(100% - 8px), calc(100% - 4px) calc(100% - 4px), calc(100% - 8px) calc(100% - 4px), calc(100% - 8px) calc(100% - 2px), 8px calc(100% - 2px), 8px calc(100% - 4px), 4px calc(100% - 4px), 4px calc(100% - 8px), 2px calc(100% - 8px));
+}
+
+.pixel-corners::after,
+.pixel-corners--wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #333;
+  display: block;
+  pointer-events: none;
+  clip-path: polygon(0px calc(100% - 8px), 2px calc(100% - 8px), 2px calc(100% - 4px), 4px calc(100% - 4px), 4px calc(100% - 2px), 8px calc(100% - 2px), 8px 100%, calc(100% - 8px) 100%, calc(100% - 8px) calc(100% - 2px), calc(100% - 4px) calc(100% - 2px), calc(100% - 4px) calc(100% - 4px), calc(100% - 2px) calc(100% - 4px), calc(100% - 2px) calc(100% - 8px), 100% calc(100% - 8px), 100% 8px, calc(100% - 2px) 8px, calc(100% - 2px) 4px, calc(100% - 4px) 4px, calc(100% - 4px) 2px, calc(100% - 8px) 2px, calc(100% - 8px) 0px, 8px 0px, 8px 2px, 4px 2px, 4px 4px, 2px 4px, 2px 8px, 0px 8px, 0px 50%, 2px 50%, 2px 8px, 4px 8px, 4px 4px, 8px 4px, 8px 2px, calc(100% - 8px) 2px, calc(100% - 8px) 4px, calc(100% - 4px) 4px, calc(100% - 4px) 8px, calc(100% - 2px) 8px, calc(100% - 2px) calc(100% - 8px), calc(100% - 4px) calc(100% - 8px), calc(100% - 4px) calc(100% - 4px), calc(100% - 8px) calc(100% - 4px), calc(100% - 8px) calc(100% - 2px), 8px calc(100% - 2px), 8px calc(100% - 4px), 4px calc(100% - 4px), 4px calc(100% - 8px), 2px calc(100% - 8px), 2px 50%, 0px 50%);
+}
+
+.pixel-corners::after {
+  margin: -2px;
+}
