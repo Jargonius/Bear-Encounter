@@ -1,11 +1,28 @@
 import { useState } from 'react';
 import './App.css';
-import data from './assets/data.json';
+import { DATA } from './assets/data';
 import PixelButton from './components/pixel-button/PixelButton';
-import { getRandomByProbability } from './utils/probability-selectors';
+import Scenario from './components/scenario/Scenario';
+import type { ScenarioType } from './types/scenario';
+import { getRandomByProbability } from './utils/probability-selector';
 
 function App() {
-  const [enemy] = useState(getRandomByProbability(data.enemies));
+  const [enemy] = useState(getRandomByProbability(DATA.enemies));
+  const [scenario, setScenario] = useState<ScenarioType>({
+    name: 'Title',
+    variants: [
+      {
+        outcome: 'None',
+        probability: 100,
+        text: 'test',
+        links: [],
+      },
+    ],
+  });
+
+  const changeScenario = (target: string, _: any) => {
+    setScenario(DATA.scenarios.find((s) => s.name == target));
+  };
 
   return (
     <>
@@ -16,10 +33,12 @@ function App() {
       </div>
 
       <div className='spacer'></div>
-      <PixelButton>Start</PixelButton>
+      <PixelButton target='Bear Encounter' onClick={changeScenario}>
+        Start
+      </PixelButton>
       <PixelButton>Changelog</PixelButton>
       <div className='spacer'></div>
-    
+      <Scenario scenario={scenario} />
     </>
   );
 }
