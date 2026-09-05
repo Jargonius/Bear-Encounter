@@ -492,7 +492,7 @@ export const DATA: Data = {
         {
           outcome: 'Game Over',
           probability: 100,
-          text: 'You look right and see a timid little ostrich. You jump down and run to it. You decide to keep it as a pet.\n(set: $name to (prompt: What do you name it?)) { (if: (lowercase: $name) is \'svenholt\')[ (go-to: Likes Name) ](else-if: (lowercase: $name) is \'sanchez\')[ (go-to: Likes Name) ](else:)[ (go-to: Dislikes Name) ] }',
+          text: 'You look right and see a timid little ostrich. You jump down and run to it. You decide to keep it as a pet.',
         },
       ],
     },
@@ -513,7 +513,7 @@ export const DATA: Data = {
           outcome: 'Game Over',
           probability: 100,
           text: 'You decide to yell. Yell what?',
-          links: [{ display: 'Yippee', target: 'Yell Yipee' }, { display: 'Help->', target: 'll Help' }],
+          links: [{ display: 'Yippee', target: 'Yell Yipee' }, { display: 'Help', target: 'Yell Help' }],
         },
       ],
     },
