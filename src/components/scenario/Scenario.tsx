@@ -24,14 +24,10 @@ export default function Scenario({ scenario, changeScenario }: ScenarioProps) {
       <div className='flexbox'>
         {variant.links ? (
           variant.links.map((link: Link, index: number) => (
-            <PixelButton key={index} onClick={changeScenario} target={link.target}>
-              {link.display || link.target}
-            </PixelButton>
+            <PixelButton key={index} onClick={changeScenario} target={link.target} text={link.display || link.target} />
           ))
         ) : (
-          <PixelButton onClick={changeScenario} target={variant.outcome}>
-            Continue
-          </PixelButton>
+          <PixelButton onClick={changeScenario} target={variant.outcome} text='Continue' />
         )}
       </div>
       <div className='spacer'></div>

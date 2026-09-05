@@ -1,4 +1,4 @@
-export class Gender {
+export interface Gender {
   name: "male" | "female";
   probability: 50;
   subject: "he" | "she";
@@ -6,11 +6,11 @@ export class Gender {
   possessive: "his" | "hers";
   reflexive: "himself" | "herself";
 
-  isMale(): boolean {
-    return this.name === "male";
-  }
+  // isMale(): boolean {
+  //   return this.name === "male";
+  // }
 
-  isFemale(): boolean {
-    return this.name === "female";
-  }
+  // isFemale(): boolean {
+  //   return this.name === "female";
+  // }
 }

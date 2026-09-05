@@ -1,5 +1,5 @@
 import type { Enemy } from "./enemy";
-import { Gender } from "./gender";
+import type { Gender } from "./gender";
 import type { ScenarioType } from "./scenario";
 
 export interface Data {
