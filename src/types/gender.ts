@@ -7,10 +7,10 @@ export class Gender {
   reflexive: "himself" | "herself";
 
   isMale(): boolean {
-    return this.name == "male";
+    return this.name === "male";
   }
 
   isFemale(): boolean {
-    return this.name == "female";
+    return this.name === "female";
   }
 }

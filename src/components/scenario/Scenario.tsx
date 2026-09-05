@@ -3,12 +3,14 @@ import type { ScenarioType } from '../../types/scenario';
 import { getRandomByProbability } from '../../utils/probability-selector';
 import './Scenario.css';
 import PixelButton from '../pixel-button/PixelButton';
+import type { Link } from '../../types/link';
 
 type ScenarioProps = {
   scenario: ScenarioType;
+  changeScenario: (target: string) => void;
 };
 
-export default function Scenario({ scenario }: ScenarioProps) {
+export default function Scenario({ scenario, changeScenario }: ScenarioProps) {
   const [variant, SetVariant] = useState(getRandomByProbability(scenario.variants));
   useEffect(() => {
     SetVariant(getRandomByProbability(scenario.variants));
@@ -18,9 +20,21 @@ export default function Scenario({ scenario }: ScenarioProps) {
   return (
     <>
       <span>{variant.text}</span>
-      {variant.links.map((link: string) => (
-        <PixelButton target={link.split('->')[1]}>{link.split('->')[0]}</PixelButton>
-      ))}
+      <div className='spacer'></div>
+      <div className='flexbox'>
+        {variant.links ? (
+          variant.links.map((link: Link, index: number) => (
+            <PixelButton key={index} onClick={changeScenario} target={link.target}>
+              {link.display || link.target}
+            </PixelButton>
+          ))
+        ) : (
+          <PixelButton onClick={changeScenario} target={variant.outcome}>
+            Continue
+          </PixelButton>
+        )}
+      </div>
+      <div className='spacer'></div>
     </>
   );
 }
