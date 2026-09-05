@@ -1,25 +1,51 @@
 import { useState } from 'react';
 import './App.css';
-import data from './assets/data.json';
+import { DATA } from './assets/data';
 import PixelButton from './components/pixel-button/PixelButton';
-import { getRandomByProbability } from './utils/probability-selectors';
+import Scenario from './components/scenario/Scenario';
+import type { ScenarioType } from './types/scenario';
+import { getRandomByProbability } from './utils/probability-selector';
 
 function App() {
-  const [enemy] = useState(getRandomByProbability(data.enemies));
+  const [enemy] = useState(getRandomByProbability(DATA.enemies));
+  const [scenario, setScenario] = useState<ScenarioType>({
+    name: 'Title',
+    variants: [
+      {
+        outcome: 'None',
+        probability: 100,
+        text: '',
+        links: [],
+      },
+    ],
+  });
+
+  const changeScenario = (target: string) => {
+    setScenario(DATA.scenarios.find((s) => s.name === target));
+  };
 
   return (
     <>
-      <div>
-        <h1>{enemy.type} Encounter</h1>
-        <h2>Version 2.5</h2>
-        <h2>© Bret Anderson</h2>
-      </div>
+      {scenario.name === 'Title' ? (
+        <>
+          <div>
+            <h1>{enemy.type} Encounter</h1>
+            <h2>Version 2.5</h2>
+            <h2>© Bret Anderson</h2>
+          </div>
 
-      <div className='spacer'></div>
-      <PixelButton>Start</PixelButton>
-      <PixelButton>Changelog</PixelButton>
-      <div className='spacer'></div>
-    
+          <div className='spacer'></div>
+          <PixelButton target='Bear Encounter' onClick={changeScenario}>
+            Start
+          </PixelButton>
+          <PixelButton>Changelog</PixelButton>
+          <div className='spacer'></div>
+        </>
+      ) : (
+        <>
+          <Scenario scenario={scenario} changeScenario={changeScenario} />
+        </>
+      )}
     </>
   );
 }

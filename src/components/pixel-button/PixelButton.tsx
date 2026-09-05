@@ -1,16 +1,17 @@
 import './PixelButton.css';
 
-interface WrapperProps {
+interface Props {
+  target?: string;
   children?: React.ReactNode;
+  onClick?: (buttonText: React.ReactNode | string) => void;
 }
-function PixelButton({children}: WrapperProps) {
+
+export default function PixelButton({ children, target = children.toString(), onClick }: Props) {
   return (
     <>
-      <span className='pixel-corners--wrapper'>
-        <span className='pixel-corners'>{children}</span>
+      <span className='pixel-corners' onClick={() => onClick(target)}>
+        {children}
       </span>
     </>
   );
 }
-
-export default PixelButton;
