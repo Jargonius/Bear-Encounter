@@ -21,12 +21,24 @@ function App() {
   });
 
   const changeScenario = (target: string) => {
-    setScenario(DATA.scenarios.find((s) => s.name === target));
+    setScenario(
+      DATA.scenarios.find((s) => s.name === target) || {
+        name: '',
+        variants: [
+          {
+            outcome: 'None',
+            probability: 100,
+            text: '',
+            links: [],
+          },
+        ],
+      }
+    );
   };
 
   return (
     <>
-      {scenario.name === 'Title' ? (
+      {scenario && scenario.name === 'Title' ? (
         <>
           <div>
             <h1>{enemy.type} Encounter</h1>
@@ -35,10 +47,8 @@ function App() {
           </div>
 
           <div className='spacer'></div>
-          <PixelButton target='Bear Encounter' onClick={changeScenario}>
-            Start
-          </PixelButton>
-          <PixelButton>Changelog</PixelButton>
+          <PixelButton target='Bear Encounter' onClick={changeScenario} text='Start' />
+          <PixelButton text='Changelog' onClick={changeScenario} />
           <div className='spacer'></div>
         </>
       ) : (

@@ -2,15 +2,15 @@ import './PixelButton.css';
 
 interface Props {
   target?: string;
-  children?: React.ReactNode;
-  onClick?: (buttonText: React.ReactNode | string) => void;
+  text: string;
+  onClick: (buttonText: string) => void;
 }
 
-export default function PixelButton({ children, target = children.toString(), onClick }: Props) {
+export default function PixelButton({ text, target = text, onClick }: Props) {
   return (
     <>
       <span className='pixel-corners' onClick={() => onClick(target)}>
-        {children}
+        {text}
       </span>
     </>
   );
