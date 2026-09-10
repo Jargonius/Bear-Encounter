@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:dry-run": "tsc -noEmit && vite build --outDir .temp-dry-run && dir && rd /s /q '.temp-dry-run'",
     "lint": "oxlint",
     "preview": "vite preview"
   },

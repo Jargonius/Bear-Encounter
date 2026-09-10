@@ -11,7 +11,7 @@ export function replaceEnemy(enemy: Enemy, data: Data): Data {
   const enemyTitle = enemy.type;
 
   // 3. Define the helper function using the cached values
-  const formatText = (str) => {
+  const formatText = (str: string) => {
     if (!str) return str;
     return str
       .replaceAll(/\$enemy/g, enemyLower)
@@ -25,7 +25,7 @@ export function replaceEnemy(enemy: Enemy, data: Data): Data {
       variant.text = formatText(variant.text);
 
       variant.links?.forEach(link => {
-        link.display = formatText(link.display);
+        link.display = formatText(link.display || '');
       });
 
     });
