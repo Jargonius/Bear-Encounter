@@ -1,6 +1,8 @@
+import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/Bear-Encounter/angular/',
+  plugins: [react()],
+  base: '/Bear-Encounter/react/',
 })
