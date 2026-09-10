@@ -6,14 +6,15 @@ on:
 
 permissions:
   contents: write
-  pages: read
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout react branch
         uses: actions/checkout@v4
+        with:
+          ref: react
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -27,19 +28,19 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Checkout gh-pages branch
+      - name: Checkout main branch
         uses: actions/checkout@v4
         with:
-          ref: gh-pages
-          path: gh-pages-repo
+          ref: main
+          path: main-repo
 
       - name: Deploy to react subfolder
         run: |
-          cd gh-pages-repo
+          cd main-repo
           rm -rf react
           cp -r ../dist react
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add react
-          git commit -m "Deploy React app from react branch" || echo "No changes to commit"
+          git commit -m "Deploy React app" || echo "No changes to commit"
           git push
