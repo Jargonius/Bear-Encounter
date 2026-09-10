@@ -8,69 +8,26 @@ permissions:
   contents: write
 
 jobs:
-  checkout-react:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout react branch
         uses: actions/checkout@v4
         with:
           ref: react
-      - name: Upload source
-        uses: actions/upload-artifact@v4
-        with:
-          name: react-source
-          path: .
 
-  setup-node:
-    needs: checkout-react
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download source
-        uses: actions/download-artifact@v4
-        with:
-          name: react-source
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: 'npm'
-      - name: Upload node setup
-        uses: actions/upload-artifact@v4
-        with:
-          name: react-source-with-node
-          path: .
 
-  install-dependencies:
-    needs: setup-node
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download source
-        uses: actions/download-artifact@v4
-        with:
-          name: react-source-with-node
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: 'npm'
       - name: Install dependencies
         run: npm ci
-      - name: Upload with dependencies
-        uses: actions/upload-artifact@v4
-        with:
-          name: react-with-deps
-          path: .
 
-  build:
-    needs: install-dependencies
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download source
-        uses: actions/download-artifact@v4
-        with:
-          name: react-with-deps
       - name: Build
         run: npm run build
+
       - name: Upload dist artifact
         uses: actions/upload-artifact@v4
         with:
