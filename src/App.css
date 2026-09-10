@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 .vt323-regular {
-  font-family: "VT323", monospace;
+  font-family: 'VT323', monospace;
   font-weight: 400;
   font-style: normal;
-  color: #333b
+  color: #333b;
 }
 
 #root {
@@ -15,15 +15,19 @@
   color: #333;
   display: flex;
   flex-direction: column;
-  font-family: "VT323", monospace;
+  font-family: 'VT323', monospace;
   font-size: 24px;
   text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
+  text-align: center;
   align-items: center;
 }
 
-h1,h2,h3 {
+h1,
+h2,
+h3 {
   color: #333;
-  font-family: "VT323", monospace;
+  font-family: 'VT323', monospace;
+  font-weight: 500;
   text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
 }
 
@@ -39,12 +43,14 @@ h3 {
   font-size: 1.25em;
 }
 
-tw-link, .enchantment-link {
-    color: #333;
+tw-link,
+.enchantment-link {
+  color: #333;
 }
 
 /* Color of links pointing to already visited passages */
-.visited, .visited:hover {
+.visited,
+.visited:hover {
   color: #333;
 }
 
