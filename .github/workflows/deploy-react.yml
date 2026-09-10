@@ -6,40 +6,171 @@ on:
 
 permissions:
   contents: write
-  pages: read
 
 jobs:
-  build-and-deploy:
+  checkout-react:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout react branch
         uses: actions/checkout@v4
+        with:
+          ref: react
+      - name: Upload source
+        uses: actions/upload-artifact@v4
+        with:
+          name: react-source
+          path: .
 
+  setup-node:
+    needs: checkout-react
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download source
+        uses: actions/download-artifact@v4
+        with:
+          name: react-source
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: 'npm'
+      - name: Upload node setup
+        uses: actions/upload-artifact@v4
+        with:
+          name: react-source-with-node
+          path: .
 
+  install-dependencies:
+    needs: setup-node
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download source
+        uses: actions/download-artifact@v4
+        with:
+          name: react-source-with-node
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: 'npm'
       - name: Install dependencies
         run: npm ci
+      - name: Upload with dependencies
+        uses: actions/upload-artifact@v4
+        with:
+          name: react-with-deps
+          path: .
 
+  build:
+    needs: install-dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download source
+        uses: actions/download-artifact@v4
+        with:
+          name: react-with-deps
       - name: Build
         run: npm run build
+      - name: Upload dist artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: react-dist
+          path: dist
 
-      - name: Checkout gh-pages branch
+  checkout-main:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main branch
         uses: actions/checkout@v4
         with:
-          ref: gh-pages
-          path: gh-pages-repo
+          ref: main
+      - name: Upload main branch
+        uses: actions/upload-artifact@v4
+        with:
+          name: main-branch
+          path: .
 
-      - name: Deploy to react subfolder
+  remove-old-folder:
+    needs: checkout-main
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download main branch
+        uses: actions/download-artifact@v4
+        with:
+          name: main-branch
+      - name: Remove old react folder
+        run: rm -rf react
+      - name: Upload cleaned main
+        uses: actions/upload-artifact@v4
+        with:
+          name: main-cleaned
+          path: .
+
+  copy-dist:
+    needs: [remove-old-folder, build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download cleaned main
+        uses: actions/download-artifact@v4
+        with:
+          name: main-cleaned
+      - name: Download dist
+        uses: actions/download-artifact@v4
+        with:
+          name: react-dist
+          path: dist
+      - name: Copy dist to react subfolder
+        run: cp -r dist react
+      - name: Upload with dist
+        uses: actions/upload-artifact@v4
+        with:
+          name: main-with-dist
+          path: .
+
+  configure-git:
+    needs: copy-dist
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download main with dist
+        uses: actions/download-artifact@v4
+        with:
+          name: main-with-dist
+      - name: Configure git
         run: |
-          cd gh-pages-repo
-          rm -rf react
-          cp -r ../dist react
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
+      - name: Upload configured
+        uses: actions/upload-artifact@v4
+        with:
+          name: main-configured
+          path: .
+
+  commit:
+    needs: configure-git
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download configured main
+        uses: actions/download-artifact@v4
+        with:
+          name: main-configured
+      - name: Commit changes
+        run: |
           git add react
-          git commit -m "Deploy React app from react branch" || echo "No changes to commit"
-          git push
+          git commit -m "Deploy React app" || echo "No changes to commit"
+      - name: Upload committed
+        uses: actions/upload-artifact@v4
+        with:
+          name: main-committed
+          path: .
+
+  push:
+    needs: commit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download committed main
+        uses: actions/download-artifact@v4
+        with:
+          name: main-committed
+      - name: Push to main
+        run: git push
