@@ -15,7 +15,6 @@ export default function Scenario({ scenario, changeScenario }: ScenarioProps) {
   useEffect(() => {
     SetVariant(getRandomByProbability(scenario.variants));
   }, [scenario]);
-  console.log(variant);
 
   return (
     <>

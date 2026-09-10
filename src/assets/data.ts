@@ -302,12 +302,12 @@ export const DATA: Data = {
       variants: [
         {
           outcome: 'Respawn',
-          probability: 50,
+          probability: 85,
           text: 'You look down and see some mushrooms. You eat them and realize they were 1-up mushrooms. The bear kills you.',
         },
         {
           outcome: 'Game Over',
-          probability: 50,
+          probability: 15,
           text: 'You look down and see some mushrooms. You eat them and realize they were poisonous. The bear knew this. He won\'t touch your corpse.',
         },
       ],
@@ -401,7 +401,17 @@ export const DATA: Data = {
         {
           outcome: 'Game Over',
           probability: 20,
-          text: 'You and the bear play fingerpaints. You have lots of fun! The bear kills you anyway.',
+          text: 'You and the bear play fingerpaints. You have lots of fun! The bear kills you anyway.'
+        },
+      ],
+    },
+    {
+      name: 'Respawn',
+      variants: [
+        {
+          outcome: 'Bear Encounter',
+          probability: 100,
+          text: 'Respawn!',
         },
       ],
     },

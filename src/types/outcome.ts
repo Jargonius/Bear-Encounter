@@ -1,7 +1,7 @@
 export type Outcome =
-  "You Win" |
-  "Game Over" |
+  "Bear Encounter" |
   "Continue" |
+  "Game Over" |
   "None" |
   "Respawn" |
   "You Win"
