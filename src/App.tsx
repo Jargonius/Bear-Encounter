@@ -5,9 +5,12 @@ import PixelButton from './components/pixel-button/PixelButton';
 import Scenario from './components/scenario/Scenario';
 import type { ScenarioType } from './types/scenario';
 import { getRandomByProbability } from './utils/probability-selector';
+import { replaceEnemy } from './utils/enemy-replacer';
+import type { Data } from './types/data';
 
 function App() {
   const [enemy] = useState(getRandomByProbability(DATA.enemies));
+  const REPLACED_DATA: Data = replaceEnemy(enemy, DATA)
   const [scenario, setScenario] = useState<ScenarioType>({
     name: 'Title',
     variants: [
@@ -22,7 +25,7 @@ function App() {
 
   const changeScenario = (target: string) => {
     setScenario(
-      DATA.scenarios.find((s) => s.name === target) || {
+      REPLACED_DATA.scenarios.find((s) => s.name === target) || {
         name: '',
         variants: [
           {

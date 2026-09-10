@@ -8,12 +8,12 @@ export const DATA: Data = {
         {
           outcome: 'You Win',
           probability: 90,
-          text: 'You growl and the bear runs away whimpering.',
+          text: 'You growl and the $enemy runs away whimpering.',
         },
         {
           outcome: 'Game Over',
           probability: 10,
-          text: 'You growl but the bear isn\'t intimidated and kills you.',
+          text: 'You growl but the $enemy isn\'t intimidated and kills you.',
         },
       ],
     },
@@ -23,7 +23,7 @@ export const DATA: Data = {
         {
           outcome: 'Continue',
           probability: 100,
-          text: 'You find yourself face to face with a $enemy. <u>What do you do?</u>',
+          text: 'You find yourself face to face with a $enemy. What do you do?',
           links: [
             { target: 'Flee' },
             { target: 'Hide' },
@@ -47,17 +47,17 @@ export const DATA: Data = {
         {
           outcome: 'Game Over',
           probability: 62.5,
-          text: 'You call for a friend but sadly you have no friends. The bear cries for you and feels your pain. You die of heartache. The bear gives you a proper burial in his stomach.',
+          text: 'You call for a friend but sadly you have no friends. The $enemy cries for you and feels your pain. You die of heartache. The $enemy gives you a proper burial in his stomach.',
         },
         {
           outcome: 'Game Over',
           probability: 25,
-          text: 'You call for a friend but sadly you have no friends. The bear cries for you and feels your pain but bears have gotta eat too. The bear sates his hunger as he wipes away the final tear.',
+          text: 'You call for a friend but sadly you have no friends. The $enemy cries for you and feels your pain but $enemys have gotta eat too. The $enemy sates his hunger as he wipes away the final tear.',
         },
         {
           outcome: 'You Win',
           probability: 12.5,
-          text: 'You call for a friend but sadly you have no friends. The bear cries for you and feels your pain. You form a lasting friendship with a bond stronger than most. You live out the rest of your lives having wonderful adventures together.',
+          text: 'You call for a friend but sadly you have no friends. The $enemy cries for you and feels your pain. You form a lasting friendship with a bond stronger than most. You live out the rest of your lives having wonderful adventures together.',
         },
       ],
     },
@@ -67,7 +67,7 @@ export const DATA: Data = {
         {
           outcome: 'Game Over',
           probability: 80,
-          text: 'You charge it, fall over, and the bear kills you.',
+          text: 'You charge it, fall over, and the $enemy kills you.',
         },
         {
           outcome: 'You Win',
@@ -82,7 +82,7 @@ export const DATA: Data = {
         {
           outcome: 'You Win',
           probability: 100,
-          text: 'You climb the wall. The bear comes after you and hits into it. You escape!',
+          text: 'You climb the wall. The $enemy comes after you and hits into it. You escape!',
         },
       ],
     },
@@ -106,7 +106,7 @@ export const DATA: Data = {
         {
           outcome: 'Game Over',
           probability: 100,
-          text: 'You dance, but bugs come and eat your flesh. The bear eats the remains.',
+          text: 'You dance, but bugs come and eat your flesh. The $enemy eats the remains.',
         },
       ],
     },
@@ -116,7 +116,7 @@ export const DATA: Data = {
         {
           outcome: 'Game Over',
           probability: 100,
-          text: 'Unfortunately you don\'t know the bear\'s favorite name. The bear doesn\'t like your choice. He kills you.',
+          text: 'Unfortunately you don\'t know the $enemy\'s favorite name. The $enemy doesn\'t like your choice. He kills you.',
         },
       ],
     },
@@ -126,7 +126,7 @@ export const DATA: Data = {
         {
           outcome: 'Game Over',
           probability: 100,
-          text: 'The bear gets mad and kills you. He plays fingerpaints on your chest.',
+          text: 'The $enemy gets mad and kills you. He plays fingerpaints on your chest.',
         },
       ],
     },
@@ -160,12 +160,12 @@ export const DATA: Data = {
         {
           outcome: 'You Win',
           probability: 50,
-          text: 'You feed the bear and his mouth gets stuck. You escape as the bear mumbles for a glass of milk!',
+          text: 'You feed the $enemy and his mouth gets stuck. You escape as the $enemy mumbles for a glass of milk!',
         },
         {
           outcome: 'You Win',
           probability: 50,
-          text: 'You feed the bear and his mouth gets stuck. You escape as the bear tries to free his mouth!',
+          text: 'You feed the $enemy and his mouth gets stuck. You escape as the $enemy tries to free his mouth!',
         },
       ],
     },
@@ -175,7 +175,7 @@ export const DATA: Data = {
         {
           outcome: 'Game Over',
           probability: 100,
-          text: 'You feed the bear and he becomes a great athlete. He whacks your head off with a tennis racket.',
+          text: 'You feed the $enemy and he becomes a great athlete. He whacks your head off with a tennis racket.',
         },
       ],
     },
@@ -185,7 +185,7 @@ export const DATA: Data = {
         {
           outcome: 'Continue',
           probability: 100,
-          text: 'You wake up and the bear wants to play fingerpaints. Play fingerpaints?',
+          text: 'You wake up and the $enemy wants to play fingerpaints. Play fingerpaints?',
           links: [
             { display: 'Yes', target: 'Play Fingerpaints' },
             { display: 'No', target: 'Don\'t Play Fingerpaints' },
@@ -224,7 +224,7 @@ export const DATA: Data = {
         {
           outcome: 'Game Over',
           probability: 100,
-          text: 'You cannot get ye beaker. The bear kills you.',
+          text: 'You cannot get ye beaker. The $enemy kills you.',
         },
       ],
     },
@@ -255,7 +255,7 @@ export const DATA: Data = {
         {
           outcome: 'You Win',
           probability: 100,
-          text: 'You and the bear jog together. When you finish, you both agree that was a refreshing workout.',
+          text: 'You and the $enemy jog together. When you finish, you both agree that was a refreshing workout.',
         },
       ],
     },
@@ -265,7 +265,7 @@ export const DATA: Data = {
         {
           outcome: 'You Win',
           probability: 100,
-          text: 'The bear loves the name $name. You become great friends.',
+          text: 'The $enemy loves the name $name. You become great friends.',
         },
       ],
     },
@@ -303,12 +303,12 @@ export const DATA: Data = {
         {
           outcome: 'Respawn',
           probability: 85,
-          text: 'You look down and see some mushrooms. You eat them and realize they were 1-up mushrooms. The bear kills you.',
+          text: 'You look down and see some mushrooms. You eat them and realize they were 1-up mushrooms. The $enemy kills you.',
         },
         {
           outcome: 'Game Over',
           probability: 15,
-          text: 'You look down and see some mushrooms. You eat them and realize they were poisonous. The bear knew this. He won\'t touch your corpse.',
+          text: 'You look down and see some mushrooms. You eat them and realize they were poisonous. The $enemy knew this. He won\'t touch your corpse.',
         },
       ],
     },
@@ -366,12 +366,12 @@ export const DATA: Data = {
         {
           outcome: 'You Win',
           probability: 50,
-          text: 'The Bear has mouths to feed and bills to pay and he can\'t wait forever. You hand the bear all of your cash. He thanks you as he chokes back tears and rushes home.',
+          text: 'The $enemy has mouths to feed and bills to pay and he can\'t wait forever. You hand the $enemy all of your cash. He thanks you as he chokes back tears and rushes home.',
         },
         {
           outcome: 'Game Over',
           probability: 50,
-          text: 'The Bear has mouths to feed and bills to pay and he can\'t wait forever. You show him that your pockets are empty. Your body won\'t pay the bills but it can, at least, feed those mouths. The bear mauls you to death and takes you home to his family.',
+          text: 'The $enemy has mouths to feed and bills to pay and he can\'t wait forever. You show him that your pockets are empty. Your body won\'t pay the bills but it can, at least, feed those mouths. The $enemy mauls you to death and takes you home to his family.',
         },
       ],
     },
@@ -381,12 +381,12 @@ export const DATA: Data = {
         {
           outcome: 'Game Over',
           probability: 75,
-          text: 'You lie down and the bear kills you.',
+          text: 'You lie down and the $enemy kills you.',
         },
         {
           outcome: 'Game Over',
           probability: 25,
-          text: 'You pull out the board game Dead. After several thrilling rounds, all of which you lose, you accept defeat and succumb to the bear.',
+          text: 'You pull out the board game Dead. After several thrilling rounds, all of which you lose, you accept defeat and succumb to the $enemy.',
         },
       ],
     },
@@ -396,12 +396,12 @@ export const DATA: Data = {
         {
           outcome: 'You Win',
           probability: 80,
-          text: 'You and the bear play fingerpaints. You have lots of fun!',
+          text: 'You and the $enemy play fingerpaints. You have lots of fun!',
         },
         {
           outcome: 'Game Over',
           probability: 20,
-          text: 'You and the bear play fingerpaints. You have lots of fun! The bear kills you anyway.'
+          text: 'You and the $enemy play fingerpaints. You have lots of fun! The $enemy kills you anyway.'
         },
       ],
     },
@@ -421,7 +421,7 @@ export const DATA: Data = {
         {
           outcome: 'Game Over',
           probability: 100,
-          text: 'You run but the bear catches you and kills you.',
+          text: 'You run but the $enemy catches you and kills you.',
         },
       ],
     },
@@ -435,7 +435,7 @@ export const DATA: Data = {
           links: [
             { display: 'Faithfully', target: 'Sing Faithfully' },
             { display: 'Under Pressure', target: 'Sing Under Pressure' },
-            { display: 'Oh Beary', target: 'Sing Oh Beary' },
+            { display: 'Oh $Enemyy', target: 'Sing Oh Beary' },
             { display: 'Thriller', target: 'Sing Thriller' },
           ],
         },
@@ -447,7 +447,7 @@ export const DATA: Data = {
         {
           outcome: 'You Win',
           probability: 100,
-          text: 'You sing and the bear is forever yours, faithfully. You run away and get married.',
+          text: 'You sing and the $enemy is forever yours, faithfully. You run away and get married.',
         },
       ],
     },
@@ -457,7 +457,7 @@ export const DATA: Data = {
         {
           outcome: 'Game Over',
           probability: 100,
-          text: 'You sing and the bear holds on, holds onto your neck. You suffocate and die.',
+          text: 'You sing and the $enemy holds on, holds onto your neck. You suffocate and die.',
         },
       ],
     },
@@ -467,7 +467,7 @@ export const DATA: Data = {
         {
           outcome: 'You Win',
           probability: 100,
-          text: 'You sing and the bear is so thrilled he lets you moonwalk to freedom.',
+          text: 'You sing and the $enemy is so thrilled he lets you moonwalk to freedom.',
         },
       ],
     },
@@ -477,7 +477,7 @@ export const DATA: Data = {
         {
           outcome: 'Game Over',
           probability: 100,
-          text: 'You sing and the bear puts pressure on your skull and kills you.',
+          text: 'You sing and the $enemy puts pressure on your skull and kills you.',
         },
       ],
     },
@@ -487,7 +487,7 @@ export const DATA: Data = {
         {
           outcome: 'Continue',
           probability: 100,
-          text: 'You and the bear lie down and take a nap.',
+          text: 'You and the $enemy lie down and take a nap.',
           links: [{ display: 'Continue', target: 'Napping' }],
         },
       ],
@@ -498,7 +498,7 @@ export const DATA: Data = {
         {
           outcome: 'Game Over',
           probability: 100,
-          text: 'You throw it and it hits the bear. He kills you in his rage.',
+          text: 'You throw it and it hits the $enemy. He kills you in his rage.',
         },
       ],
     },
@@ -508,7 +508,7 @@ export const DATA: Data = {
         {
           outcome: 'Game Over',
           probability: 100,
-          text: 'You look left and see a pile of splendifferous delkrams. As you wonder what a delkram is, the bear climbs the tree and kills you.',
+          text: 'You look left and see a pile of splendifferous delkrams. As you wonder what a delkram is, the $enemy climbs the tree and kills you.',
         },
       ],
     },
@@ -528,7 +528,7 @@ export const DATA: Data = {
         {
           outcome: 'Game Over',
           probability: 100,
-          text: 'The bear sees you hide, finds you, and kills you.',
+          text: 'The $enemy sees you hide, finds you, and kills you.',
         },
       ],
     },
@@ -549,7 +549,7 @@ export const DATA: Data = {
         {
           outcome: 'Game Over',
           probability: 100,
-          text: 'You yell help and the bear helps himself to your delicious body.',
+          text: 'You yell help and the $enemy helps himself to your delicious body.',
         },
       ],
     },
@@ -559,7 +559,7 @@ export const DATA: Data = {
         {
           outcome: 'You Win',
           probability: 100,
-          text: 'You yell yipee and square dance with the bear. When you finish the bear thanks you for the dance.',
+          text: 'You yell yipee and square dance with the $enemy. When you finish the $enemy thanks you for the dance.',
         },
       ],
     },
