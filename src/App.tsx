@@ -43,7 +43,7 @@ function App() {
           <div>
             <h1>{enemy.type} Encounter</h1>
             <h2>Version 2.5</h2>
-            <h2>© Bret Anderson</h2>
+            <h3>© Bret Anderson</h3>
           </div>
 
           <div className='spacer'></div>

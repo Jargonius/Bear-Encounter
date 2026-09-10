@@ -36,6 +36,7 @@ export const DATA: Data = {
             { target: 'Feed It' },
             { target: 'Yell' },
             { target: 'Call a Friend' },
+            { target: 'Pay Up' }
           ],
         },
       ],
@@ -360,6 +361,21 @@ export const DATA: Data = {
       ],
     },
     {
+      name: 'Pay Up',
+      variants: [
+        {
+          outcome: 'You Win',
+          probability: 50,
+          text: 'The Bear has mouths to feed and bills to pay and he can\'t wait forever. You hand the bear all of your cash. He thanks you as he chokes back tears and rushes home.',
+        },
+        {
+          outcome: 'Game Over',
+          probability: 50,
+          text: 'The Bear has mouths to feed and bills to pay and he can\'t wait forever. You show him that your pockets are empty. Your body won\'t pay the bills but it can, at least, feed those mouths. The bear mauls you to death and takes you home to his family.',
+        },
+      ],
+    },
+    {
       name: 'Play Dead',
       variants: [
         {
@@ -492,7 +508,7 @@ export const DATA: Data = {
         {
           outcome: 'Game Over',
           probability: 100,
-          text: 'You look right and see a timid little ostrich. You jump down and run to it. You decide to keep it as a pet.\n(set: $name to (prompt: What do you name it?)) { (if: (lowercase: $name) is \'svenholt\')[ (go-to: Likes Name) ](else-if: (lowercase: $name) is \'sanchez\')[ (go-to: Likes Name) ](else:)[ (go-to: Dislikes Name) ] }',
+          text: 'You look right and see a timid little ostrich. You jump down and run to it. You decide to keep it as a pet.',
         },
       ],
     },
@@ -513,7 +529,7 @@ export const DATA: Data = {
           outcome: 'Game Over',
           probability: 100,
           text: 'You decide to yell. Yell what?',
-          links: [{ display: 'Yippee', target: 'Yell Yipee' }, { display: 'Help->', target: 'll Help' }],
+          links: [{ display: 'Yippee', target: 'Yell Yipee' }, { display: 'Help', target: 'Yell Help' }],
         },
       ],
     },
