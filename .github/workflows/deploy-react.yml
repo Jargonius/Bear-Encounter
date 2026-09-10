@@ -5,7 +5,9 @@ on:
     branches: [react]
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build:
@@ -28,42 +30,18 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Upload dist artifact
-        uses: actions/upload-artifact@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: react-dist
-          path: dist
+          path: 'dist'
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout main branch
-        uses: actions/checkout@v4
-        with:
-          ref: main
-
-      - name: Download dist artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: react-dist
-          path: dist
-
-      - name: Remove old react folder
-        run: rm -rf react
-
-      - name: Copy dist to react subfolder
-        run: cp -r dist react
-
-      - name: Configure git
-        run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-
-      - name: Commit changes
-        run: |
-          git add react
-          git commit -m "Deploy React app" || echo "No changes to commit"
-
-      - name: Push to main
-        run: git push
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
