@@ -329,7 +329,7 @@ export const DATA: Data = {
         {
           outcome: 'Continue',
           probability: 100,
-          text: 'You look right and see a brick wall. Do you? [[Charge it->Charge Wall]] [[Climb it->Climb Wall]]',
+          text: 'You look right and see a brick wall. Do you?',
           links: [{ display: 'Charge it', target: 'Charge Wall' }, { display: 'Climb it', target: 'Climb Wall' }],
         },
       ],
