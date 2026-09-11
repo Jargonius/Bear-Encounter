@@ -6,9 +6,8 @@ import Scenario from './components/scenario/Scenario';
 import './index.css';
 import type { Data } from './types/data';
 import type { ScenarioType } from './types/scenario';
-import { replaceEnemy } from './utils/text-replacer';
 import { getRandomByProbability } from './utils/probability-selector';
-import AnimatedZs from './components/animated-zs/AnimatedZs';
+import { replaceEnemy } from './utils/text-replacer';
 
 function App() {
   const [enemy] = useState(getRandomByProbability(DATA.enemies));
