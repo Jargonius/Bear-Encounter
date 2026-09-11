@@ -1,0 +1,42 @@
+.animated-z {
+  opacity: 0;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+}
+
+.animated-z:nth-child(1) {
+  animation-name: showAndHide-0;
+  font-size: 2em;
+}
+
+.animated-z:nth-child(2) {
+  animation-name: showAndHide-1;
+  font-size: 2.5em;
+}
+
+.animated-z:nth-child(3) {
+  animation-name: showAndHide-2;
+  font-size: 3em;
+}
+
+@keyframes showAndHide-0 {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  60% { opacity: 1; }
+  65%, 100% { opacity: 0; }
+}
+
+@keyframes showAndHide-1 {
+  0%, 16.67% { opacity: 0; }
+  26.67% { opacity: 1; }
+  60% { opacity: 1; }
+  65%, 100% { opacity: 0; }
+}
+
+@keyframes showAndHide-2 {
+  0%, 33.33% { opacity: 0; }
+  43.33% { opacity: 1; }
+  60% { opacity: 1; }
+  65%, 100% { opacity: 0; }
+}

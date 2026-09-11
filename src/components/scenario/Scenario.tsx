@@ -5,6 +5,7 @@ import './Scenario.css';
 import PixelButton from '../pixel-button/PixelButton';
 import type { Link } from '../../types/link';
 import PixelInput from '../pixel-input/PixelInput';
+import AnimatedZs from '../animated-zs/AnimatedZs';
 
 type ScenarioProps = {
   scenario: ScenarioType;
@@ -19,12 +20,20 @@ export default function Scenario({ scenario, changeScenario, onTextChange }: Sce
   }, [scenario]);
 
   const handleTextChange = (text: string) => {
-    onTextChange(text)
+    onTextChange(text);
   };
 
   return (
     <>
-      <span>{variant.text}</span>
+      {scenario && scenario.name === 'Napping' ? (
+        <>
+          <AnimatedZs />
+        </>
+      ) : (
+        <>
+          <span>{variant.text}</span>
+        </>
+      )}
       <div className='spacer'></div>
       {scenario.name === 'Tree Right' && <PixelInput label='What do you name it?' onChange={handleTextChange} />}
       <div className='flexbox'>

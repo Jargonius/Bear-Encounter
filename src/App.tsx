@@ -8,6 +8,7 @@ import type { Data } from './types/data';
 import type { ScenarioType } from './types/scenario';
 import { replaceEnemy } from './utils/text-replacer';
 import { getRandomByProbability } from './utils/probability-selector';
+import AnimatedZs from './components/animated-zs/AnimatedZs';
 
 function App() {
   const [enemy] = useState(getRandomByProbability(DATA.enemies));
@@ -54,15 +55,17 @@ function App() {
     <>
       {scenario && scenario.name === 'Title' ? (
         <>
-          <div>
+          <span>
             <h1>{enemy.type} Encounter</h1>
             <h2>Version 2.5</h2>
             <h3>© Bret Anderson</h3>
-          </div>
+          </span>
 
           <div className='spacer'></div>
-          <PixelButton target='Bear Encounter' onClick={changeScenario} text='Start' />
-          <PixelButton text='Changelog' onClick={changeScenario} />
+          <span className='flex-column'>
+            <PixelButton target='Bear Encounter' onClick={changeScenario} text='Start' />
+            <PixelButton text='Changelog' onClick={changeScenario} />
+          </span>
           <div className='spacer'></div>
         </>
       ) : (
