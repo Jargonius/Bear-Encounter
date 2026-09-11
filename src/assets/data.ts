@@ -356,7 +356,7 @@ export const DATA: Data = {
           outcome: 'Continue',
           probability: 100,
           text: 'zzz',
-          links: [{ display: 'Continue', target: 'Fingerpaints' }],
+          links: [{ display: 'Wake Up!', target: 'Fingerpaints' }],
         },
       ],
     },
