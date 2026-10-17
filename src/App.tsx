@@ -64,6 +64,10 @@ function App() {
           <span className='flex-column'>
             <PixelButton target='Bear Encounter' onClick={changeScenario} text='Start' />
             <PixelButton text='Changelog' onClick={changeScenario} />
+            {/* <PixelButton onClick={function (buttonText: string): void {} }>
+              <span className='emoji-fixed-color'>⚙️</span>
+              <span>Settings</span>
+            </PixelButton> */}
           </span>
           <div className='spacer'></div>
         </>

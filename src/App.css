@@ -1,12 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
-
 #root {
   width: 100vw;
   height: 100vh;
   padding-top: 3.5rem;
-  background-color: #99cc66;
-  color: #333;
+  background-color: var(--back-color);
+  color: var(--text-color);
   display: flex;
   flex-direction: column;
   font-family: 'VT323', monospace;
@@ -17,7 +16,8 @@
   justify-content: space-around;
 }
 
-html, body {
+html,
+body {
   overflow: hidden;
   margin: 0;
   padding: 0;
@@ -27,7 +27,7 @@ html, body {
 h1,
 h2,
 h3 {
-  color: #333;
+  color: var(--text-color);
   font-family: 'VT323', monospace;
   font-weight: 500;
   text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
@@ -53,4 +53,10 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.emoji-fixed-color {
+  margin-top: 2px;
+  color: transparent;
+  text-shadow: 0 0 0 var(--text-color);
 }

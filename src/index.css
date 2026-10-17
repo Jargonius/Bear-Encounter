@@ -1,3 +1,16 @@
+body {
+  --calculator: #99cc66;
+  --calculator-text: #333333;
+  --portal: #b4752a;
+  --portal-text: #3c2812;
+  --terminal: #111111;
+  --terminal-text: #eeeeee;
+  --red: #221111;
+  --red-text: #dd1111;
+  --back-color: var(--calculator);
+  --text-color: var(--calculator-text);
+}
+
 .pixel-box {
   filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.1));
   display: inline-flex;
@@ -24,7 +37,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: #333;
+  background: var(--text-color);
   display: block;
   pointer-events: none;
   clip-path: polygon(

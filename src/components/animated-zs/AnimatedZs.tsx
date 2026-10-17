@@ -1,3 +1,4 @@
+// AI helped a bunch with this code.
 import './AnimatedZs.css';
 
 export default function AnimatedZs() {
